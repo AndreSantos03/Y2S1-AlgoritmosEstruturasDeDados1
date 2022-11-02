@@ -10,31 +10,31 @@
 
 using namespace std;
 
-struct Aulas
+struct classes
 {
-    string CodAula;
-    string CodUc;
-    string DiaSemana;
-    string HoraComeco;
-    string Duracao;
-    string Tipo;
+    string codAula;
+    string codUc;
+    string diaSemana;
+    string horaComeco;
+    string duracao;
+    string tipo;
 };
 
-struct aulas_por_uc
+struct classes_for_uc
 {
-    string CodUc;
-    string CodAula;
+    string codUc;
+    string codAula;
 };
 
-struct estudantes_aulas
+struct classes_per_students
 {
-    string NomeEstudante;
-    string CodEstudante;
-    string CodUc;
-    string CodAula;
+    string nomeEstudante;
+    string codEstudante;
+    string codUc;
+    string codAula;
 };
 
-struct pedido
+struct request
 {
     string tipo;
     string estudante;

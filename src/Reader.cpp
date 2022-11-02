@@ -1,7 +1,7 @@
-#include "Read.h"
+#include "Ler.h"
 
 
-vector<aulas_por_uc> Read::ler_aulas_por_uc()
+vector<aulas_por_uc> Reader::ler_aulas_por_uc()
 {
     vector<aulas_por_uc> v;
     ifstream filein;
@@ -30,7 +30,7 @@ vector<aulas_por_uc> Read::ler_aulas_por_uc()
 }
 
 
-vector<aulas> Read::ler_aulas()
+vector<aulas> Reader::read_classes()
 {
     vector<aulas> v;
     ifstream filein;
@@ -67,7 +67,7 @@ vector<aulas> Read::ler_aulas()
 }
 
 
-vector<estudantes_aulas> Read::ler_estudantes_aulas()
+vector<estudantes_aulas> Ler::ler_estudantes_aulas()
 {
     vector<estudantes_aulas> v;
     ifstream filein;
