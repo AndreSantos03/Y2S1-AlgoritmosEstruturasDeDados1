@@ -16,8 +16,8 @@ class Uc
     Scheduler &s;
   public:
     Uc(Scheduler &s);
-    void get_classes(string uccode);
     void get_students(string uccode);
+    void get_classes(string uccode);
 };
 
 #endif

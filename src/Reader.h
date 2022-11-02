@@ -15,7 +15,7 @@ using namespace std;
 class Reader
 {
   public:
-    vector<> read_classes_uc();
+    vector<> read_classes_per_uc();
     vector<classes> read_classes();
     vector<classes_per_students> read_students_class();
 };

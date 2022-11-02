@@ -8,12 +8,11 @@ void Creator::initialize()
     classes_per_uc_v = read.read_classes_per_uc();
     classes_v = read.read_classes();
     students_classes_v = read.read_students_classes();
-
     initialize_all_ucs_classes();
     initialize_ocupation();
 }
 
-void Creator::initialize_all_ucs_classes()
+void Creator::initialize_uc_classes()
 {
     int current_uc_index = -1;
     string current_uc = "";
@@ -29,13 +28,11 @@ void Creator::initialize_all_ucs_classes()
         {
             ucs_classes_v[current_uc_index].second.push_back(classes_per_uc_v[i].ClassCode);
         }
-
         all_classes_v.insert(classes_per_uc_v[i].ClassCode);
     }
 }
 
 vector<pair<string, int>> c = {{"8", 0}, {"8.5", 2}, {"9", 4}, {"9.5", 6}, {"10", 8}, {"10.5", 10}, {"11", 12}, {"11.5", 14}, {"12", 16}, {"12.5", 18}, {"13", 20}, {"13.5", 22}, {"14", 24}, {"14.5", 26}, {"15", 28}, {"15.5", 30}, {"16", 32}, {"16.5", 34}, {"17", 36}, {"17.5", 38}, {"18", 40}, {"18.5", 42}, {"19", 44}, {"19.5", 46}};
-
 map<string, int> d = {{"Monday", 0}, {"Tuesday", 1}, {"Wednesday", 2}, {"Thursday", 3}, {"Friday", 4}};
 
 vector<vector<string>> Creator::schedule(vector<vector<string>> p)
@@ -180,7 +177,25 @@ void Creator::initialize_ocupation()
     }
 }
 
-bool Creator::remove_uc_class(string studentcode, string uccode, string classcode)
+void Creator::ocupation()
+{
+    cout << BOLDWHITE << endl << "All UCs: all\nSpecific UC: L.EIC___" << endl << endl;
+    string ci;
+    cin >> ci;
+    for (auto o : ocupation_v)
+    {
+        if (ci == "all" || ci == o.first)
+        {
+            cout << BOLDWHITE << endl << o.first << RESET << endl;
+            for (int j = 0; j < o.second.size(); j++)
+            {
+                cout << o.second[j].first << " - " << o.second[j].second << endl;
+            }
+        }
+    }
+}
+
+bool Creator::remove_class_uc(string studentcode, string uccode, string classcode)
 {
     auto it = remove_if(students_classes_v.begin(), students_classes_v.end(), [uccode, classcode, studentcode](students_classes r) { return (r.UcCode == uccode && r.ClassCode == classcode && (r.StudentCode == studentcode || r.StudentName == studentcode)); });
     if (it != students_classes_v.end())
@@ -329,23 +344,6 @@ bool Creator::change_class(string studentcode, string uccode, string classcode, 
     return false;
 }
 
-void Creator::ocupation()
-{
-    cout << BOLDWHITE << endl << "All UCs: all\nSpecific UC: L.EIC___" << endl << endl;
-    string ci;
-    cin >> ci;
-    for (auto o : ocupation_v)
-    {
-        if (ci == "all" || ci == o.first)
-        {
-            cout << BOLDWHITE << endl << o.first << RESET << endl;
-            for (int j = 0; j < o.second.size(); j++)
-            {
-                cout << o.second[j].first << " - " << o.second[j].second << endl;
-            }
-        }
-    }
-}
 
 bool Creator::is_valid_uc_class(string uccode, string classcode)
 {

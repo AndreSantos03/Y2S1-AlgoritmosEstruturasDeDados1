@@ -8,18 +8,6 @@ Uc::Uc(Scheduler &new_s) : s(new_s)
 {
 }
 
-void Uc::get_classes(string uccode)
-{
-    cout << RESET << "---\nAll Classes that have the UC " << uccode << ":" << endl << endl;
-    for (int i = 0; i < s.classes_per_uc_v.size(); i++)
-    {
-        if (s.classes_per_uc_v.at(i).UcCode == uccode)
-        {
-            cout << s.classes_per_uc_v.at(i).ClassCode << endl;
-        }
-    }
-}
-
 void Uc::get_students(string uccode)
 {
     string order;
@@ -64,5 +52,17 @@ void Uc::get_students(string uccode)
     for (int i = 0; i < p.size(); i++)
     {
         cout << RESET << p.at(i).first << " - " << p.at(i).second << endl;
+    }
+}
+
+void Uc::get_classes(string uccode)
+{
+    cout << RESET << "---\nAll Classes that have the UC " << uccode << ":" << endl << endl;
+    for (int i = 0; i < s.classes_per_uc_v.size(); i++)
+    {
+        if (s.classes_per_uc_v.at(i).UcCode == uccode)
+        {
+            cout << s.classes_per_uc_v.at(i).ClassCode << endl;
+        }
     }
 }

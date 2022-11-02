@@ -22,7 +22,7 @@ void Student::get_schedule(string studentcode)
     }
     for (int i = 0; i < s.classes_v.size(); i++)
     {
-        if (s.classes_v.at(i).ClassCode == bigpp[s.classes_v.at(i).UcCode])
+        if (s.classes_v.at(i).ClassCode == tmp[s.classes_v.at(i).UcCode])
         {
             p.push_back({s.classes_v.at(i).UcCode, s.classes_v.at(i).ClassCode, s.classes_v.at(i).Weekday, s.classes_v.at(i).StartHour, s.classes_v.at(i).Duration, s.classes_v.at(i).Type});
         }

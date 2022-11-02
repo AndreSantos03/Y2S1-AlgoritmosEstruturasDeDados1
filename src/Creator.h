@@ -20,7 +20,7 @@ using namespace std;
 class Creator{
     public:
         void initialize();
-        void initialize_classes_uc();
+        void initialize_uc_classes();
         void initialize_ocupation();
         vector<vector<string>> schedule(vector<vector<string>> p);
         void ocupation();
@@ -28,7 +28,6 @@ class Creator{
         bool is_balanced(string uccode, string classcode);
         bool add_to(string studentcode, string uccode, string classcode);
         bool change_class(string studentcode, string uccode, string classcode, string newclasscode);
-        bool is_valid_class_uc(string uccode, string classcode);
         bool is_valid_uc_class(string uccode, string classcode);
         bool is_valid_uc(string uccode);
         bool is_valid_class(string classcode);

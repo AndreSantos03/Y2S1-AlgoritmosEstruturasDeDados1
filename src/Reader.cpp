@@ -68,7 +68,7 @@ vector<classes> Reader::read_classes()
 }
 
 
-vector<students_classes> Reader::read_students_classes()
+vector<students_classes> Reader::read_students_class()
 {
     vector<students_classes> v;
     ifstream filein;
