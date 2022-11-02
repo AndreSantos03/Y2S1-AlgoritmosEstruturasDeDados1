@@ -1,9 +1,9 @@
 #include "Ler.h"
 
 
-vector<aulas_por_uc> Reader::ler_aulas_por_uc()
+vector<classes_per_uc> Reader::read_classes_per_uc()
 {
-    vector<aulas_por_uc> v;
+    vector<classes_per_uc> v;
     ifstream filein;
     filein.open("../classes_per_uc.csv");
     if (!filein.is_open())
@@ -17,11 +17,11 @@ vector<aulas_por_uc> Reader::ler_aulas_por_uc()
     {
         stringstream line(buffer);
         string buf;
-        aulas_por_uc p;
+        classes_per_uc p;
         getline(line, buf, ',');
-        p.CodUc = buf;
+        p.UcCode = buf;
         getline(line, buf, '\r');
-        p.CodAula = buf;
+        p.ClassCode= buf;
         v.push_back(p);
     }
 
@@ -30,9 +30,9 @@ vector<aulas_por_uc> Reader::ler_aulas_por_uc()
 }
 
 
-vector<aulas> Reader::read_classes()
+vector<classes> Reader::read_classes()
 {
-    vector<aulas> v;
+    vector<classes> v;
     ifstream filein;
     filein.open("../classes.csv");
     if (!filein.is_open())
@@ -46,19 +46,19 @@ vector<aulas> Reader::read_classes()
     {
         stringstream line(buffer);
         string buf;
-        aulas p;
+        classes p;
         getline(line, buf, ',');
-        p.CodAula = buf;
+        p.ClassCode = buf;
         getline(line, buf, ',');
-        p.CodUc = buf;
+        p.UcCode = buf;
         getline(line, buf, ',');
-        p.DiaSemana = buf;
+        p.WeekDay = buf;
         getline(line, buf, ',');
-        p.HoraComeco = buf;
+        p.StartHour = buf;
         getline(line, buf, ',');
-        p.Duracao = buf;
+        p.Duration = buf;
         getline(line, buf, '\r');
-        p.Tipo = buf;
+        p.Type = buf;
         v.push_back(p);
     }
 
@@ -67,9 +67,9 @@ vector<aulas> Reader::read_classes()
 }
 
 
-vector<estudantes_aulas> Ler::ler_estudantes_aulas()
+vector<students_classes> Reader::read_students_classes()
 {
-    vector<estudantes_aulas> v;
+    vector<students_classes> v;
     ifstream filein;
     filein.open("../students_classes.csv");
     if (!filein.is_open())
@@ -83,15 +83,15 @@ vector<estudantes_aulas> Ler::ler_estudantes_aulas()
     {
         stringstream line(buffer);
         string buf;
-        estudantes_aulas p;
+        students_classes p;
         getline(line, buf, ',');
-        p.CodEstudante = buf;
+        p.StudentCode = buf;
         getline(line, buf, ',');
-        p.NomeEstudante = buf;
+        p.StudentName = buf;
         getline(line, buf, ',');
-        p.CodUc = buf;
+        p.UcCode = buf;
         getline(line, buf, '\r');
-        p.CodAula = buf;
+        p.ClassCode = buf;
         v.push_back(p);
     }
 

@@ -12,35 +12,35 @@ using namespace std;
 
 struct classes
 {
-    string codAula;
-    string codUc;
-    string diaSemana;
-    string horaComeco;
-    string duracao;
-    string tipo;
+    string ClassCode;
+    string UcCode;
+    string Weekday;
+    string StartHour;
+    string Duration;
+    string Type;
 };
 
 struct classes_for_uc
 {
-    string codUc;
-    string codAula;
+    string UcCode;
+    string ClassCode;
 };
 
 struct classes_per_students
 {
-    string nomeEstudante;
-    string codEstudante;
-    string codUc;
-    string codAula;
+    string StudentName;
+    string StudentCode;
+    string UcCode;
+    string ClassCode;
 };
 
 struct request
 {
-    string tipo;
-    string estudante;
-    string coduc;
-    string codaula;
-    string novocodaula;
+    string type;
+    string student;
+    string uccode;
+    string classcode;
+    string newclasscode;
 };
 
 #endif
