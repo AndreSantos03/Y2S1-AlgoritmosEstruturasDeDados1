@@ -1,7 +1,3 @@
-/**
- * structs.h define as estruturas usadas
- */
-
 #ifndef _STRUCTS_H_
 #define _STRUCTS_H_
 

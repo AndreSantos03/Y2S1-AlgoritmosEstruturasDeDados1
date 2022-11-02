@@ -1,7 +1,3 @@
-/**
- * Sort.h : funções para ordenar vetores
- */
-
 #ifndef _SORT_H_
 #define _SORT_H_
 
