@@ -1,5 +1,6 @@
 #include "Ler.h"
 
+#define RESET "\033[0m"
 
 vector<classes_per_uc> Reader::read_classes_per_uc()
 {

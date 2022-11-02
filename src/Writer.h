@@ -1,5 +1,5 @@
-#ifndef _WRITE_H_
-#define _WRITE_H_
+#ifndef _WRITER_H_
+#define _WRITER_H_
 
 #include "Creator.h"
 #include "structs.h"

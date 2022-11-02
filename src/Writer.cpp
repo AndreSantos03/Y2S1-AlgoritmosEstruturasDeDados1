@@ -1,6 +1,9 @@
 #include "Writer.h"
 #include <climits>
 
+#define RESET "\033[0m"
+#define RED "\033[31m"
+
 Writer::Write(Scheduler &new_s) : s(new_s)
 {
 }
