@@ -1,5 +1,5 @@
 /**
- * structs.h defines the structs used
+ * structs.h define as estruturas usadas
  */
 
 #ifndef _STRUCTS_H_
@@ -14,37 +14,37 @@
 
 using namespace std;
 
-struct classes
+struct Aulas
 {
-    string ClassCode;
-    string UcCode;
-    string Weekday;
-    string StartHour;
-    string Duration;
-    string Type;
+    string CodAula;
+    string CodUc;
+    string DiaSemana;
+    string HoraComeco;
+    string Duracao;
+    string Tipo;
 };
 
-struct classes_per_uc
+struct aulas_por_uc
 {
-    string UcCode;
-    string ClassCode;
+    string CodUc;
+    string CodAula;
 };
 
-struct students_classes
+struct estudantes_aulas
 {
-    string StudentCode;
-    string StudentName;
-    string UcCode;
-    string ClassCode;
+    string NomeEstudante;
+    string CodEstudante;
+    string CodUc;
+    string CodAula;
 };
 
-struct request
+struct pedido
 {
-    string type;
-    string student;
-    string uccode;
-    string classcode;
-    string newclasscode;
+    string tipo;
+    string estudante;
+    string coduc;
+    string codaula;
+    string novocodaula;
 };
 
 #endif
