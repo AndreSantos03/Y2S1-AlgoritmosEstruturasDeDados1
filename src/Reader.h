@@ -1,7 +1,7 @@
 #ifndef _READER_H_
 #define _READER_H_
 
-#include "Strcts.h"
+#include "Structs.h"
 #include <fstream>
 #include <iostream>
 #include <sstream>
