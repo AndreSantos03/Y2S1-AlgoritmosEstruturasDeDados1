@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Uc::Uc(Scheduler &new_s) : s(new_s)
+Uc::Uc(Creator &new_s) : s(new_s)
 {
 }
 
@@ -15,14 +15,14 @@ void Uc::get_students(string uccode)
     cin >> order;
     cout << RESET << "---\nAll Students that have the UC " << uccode << ":" << endl << endl;
     vector<pair<string, string>> p;
-    for (int i = 0; i < s.students_classes_v.size(); i++)
+    for (int i = 0; i < s.classes_per_students_new.size(); i++)
     {
-        if (s.students_classes_v.at(i).UcCode == uccode)
+        if (s.classes_per_students_new.at(i).UcCode == uccode)
         {
             bool a = true;
             for (int j = 0; j < p.size(); j++)
             {
-                if (s.students_classes_v.at(i).StudentCode == p.at(j).second)
+                if (s.classes_per_students_new.at(i).StudentCode == p.at(j).second)
                 {
                     a = false;
                     break;
@@ -30,7 +30,7 @@ void Uc::get_students(string uccode)
             }
             if (a)
             {
-                p.push_back({s.students_classes_v.at(i).StudentName, s.students_classes_v.at(i).StudentCode});
+                p.push_back({s.classes_per_students_new.at(i).StudentName, s.classes_per_students_new.at(i).StudentCode});
             }
         }
     }
@@ -41,7 +41,7 @@ void Uc::get_students(string uccode)
     }
     else if (order == "2")
     {
-        sort(p.begin(), p.end(), sortNumerically);
+        sort(p.begin(), p.end(), sortNumber);
     }
     else
     {
@@ -58,11 +58,11 @@ void Uc::get_students(string uccode)
 void Uc::get_classes(string uccode)
 {
     cout << RESET << "---\nAll Classes that have the UC " << uccode << ":" << endl << endl;
-    for (int i = 0; i < s.classes_per_uc_v.size(); i++)
+    for (int i = 0; i < s.classes_per_uc_new.size(); i++)
     {
-        if (s.classes_per_uc_v.at(i).UcCode == uccode)
+        if (s.classes_per_uc_new.at(i).UcCode == uccode)
         {
-            cout << s.classes_per_uc_v.at(i).ClassCode << endl;
+            cout << s.classes_per_uc_new.at(i).ClassCode << endl;
         }
     }
 }
