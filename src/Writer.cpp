@@ -4,7 +4,7 @@
 #define RESET "\033[0m"
 #define RED "\033[31m"
 
-Writer::Write(Scheduler &new_s) : s(new_s)
+Writer::Writer(Creator &new_s) : s(new_s)
 {
 }
 
@@ -18,9 +18,9 @@ bool Writer::write()
         return false;
     }
     fileout << "StudentCode,StudentName,UcCode,ClassCode\r\n";
-    for (int i = 0; i < s.students_classes_v.size(); i++)
+    for (int i = 0; i < s.classes_per_students_new.size(); i++)
     {
-        fileout << s.students_classes_v[i].StudentCode << "," << s.students_classes_v[i].StudentName << "," << s.students_classes_v[i].UcCode << "," << s.students_classes_v[i].ClassCode << "\r\n";
+        fileout << s.classes_per_students_new[i].StudentCode << "," << s.classes_per_students_new[i].StudentName << "," << s.classes_per_students_new[i].UcCode << "," << s.classes_per_students_new[i].ClassCode << "\r\n";
     }
     fileout.close();
     remove("../students_classes.csv");

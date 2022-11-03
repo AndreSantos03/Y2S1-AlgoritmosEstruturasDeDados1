@@ -1,4 +1,4 @@
-#include "Ler.h"
+#include "Reader.h"
 
 #define RESET "\033[0m"
 
@@ -68,9 +68,9 @@ vector<classes> Reader::read_classes()
 }
 
 
-vector<students_classes> Reader::read_students_class()
+vector<classes_per_students> Reader::read_students_class()
 {
-    vector<students_classes> v;
+    vector<classes_per_students> v;
     ifstream filein;
     filein.open("../students_classes.csv");
     if (!filein.is_open())
@@ -84,7 +84,7 @@ vector<students_classes> Reader::read_students_class()
     {
         stringstream line(buffer);
         string buf;
-        students_classes p;
+        classes_per_students p;
         getline(line, buf, ',');
         p.StudentCode = buf;
         getline(line, buf, ',');

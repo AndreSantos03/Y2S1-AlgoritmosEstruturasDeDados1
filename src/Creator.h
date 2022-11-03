@@ -33,10 +33,12 @@ class Creator{
         bool is_valid_class(string classcode);
         bool is_valid_schedule_change(string studentcode, string uc, string oldclass, string newclass);
         
-        vector<classes> classes;
-        vector<classes_per_uc> classes_per_uc;
-        vector<students_classes> classes_per_students;
-        set<string> all_classes;
-        vector<pair<string,vector<string>>> classes_per_uc;
-        map<string, vector<pair<string,int>>> occupation;
-    }
+        vector<classes> classes_new;
+        vector<classes_per_uc> classes_per_uc_new;
+        vector<classes_per_students> classes_per_students_new;
+        set<string> all_classes_new;
+        vector<pair<string,vector<string>>> uc_classes_new;
+        map<string, vector<pair<string,int>>> ocupation_new;
+    };
+
+#endif

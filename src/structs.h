@@ -14,13 +14,13 @@ struct classes
 {
     string ClassCode;
     string UcCode;
-    string Weekday;
+    string WeekDay;
     string StartHour;
     string Duration;
     string Type;
 };
 
-struct classes_for_uc
+struct classes_per_uc
 {
     string UcCode;
     string ClassCode;

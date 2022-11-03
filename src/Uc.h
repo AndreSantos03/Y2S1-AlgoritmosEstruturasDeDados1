@@ -1,7 +1,7 @@
 #ifndef _UC_H_
 #define _UC_H_
 
-#include "Scheduler.h"
+#include "Creator.h"
 #include "Sorter.h"
 #include <algorithm>
 #include <iostream>
@@ -13,9 +13,9 @@ using namespace std;
 class Uc
 {
   private:
-    Scheduler &s;
+    Creator &s;
   public:
-    Uc(Scheduler &s);
+    Uc(Creator &s);
     void get_students(string uccode);
     void get_classes(string uccode);
 };

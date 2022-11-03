@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Class.h"
-#include "Scheduler.h"
+#include "Creator.h"
 #include "Student.h"
 #include "Uc.h"
 #include <queue>
@@ -16,7 +16,7 @@ using namespace std;
 
 bool can_exit_clean = true;
 
-queue<request> process_requests(Scheduler &s, queue<request> q)
+queue<request> process_requests(Creator &s, queue<request> q)
 {
     if (!q.empty())
     {
@@ -27,7 +27,7 @@ queue<request> process_requests(Scheduler &s, queue<request> q)
     {
         if (q.front().type == "remove")
         {
-            if (s.remove_uc_class(q.front().student, q.front().uccode, q.front().classcode))
+            if (s.remove_class_uc(q.front().student, q.front().uccode, q.front().classcode))
             {
                 cout << GREEN << "Removed student " << q.front().student << " from UC:" << q.front().uccode << " / Class:" << q.front().classcode << endl;
                 q.pop();
@@ -75,9 +75,9 @@ queue<request> process_requests(Scheduler &s, queue<request> q)
     return q_fail;
 }
 
-void test(Scheduler &s, bool keep)
+void test(Creator &s, bool keep)
 {
-    vector<students_classes> tmp = s.students_classes_v;
+    vector<classes_per_students> tmp = s.classes_per_students_new;
     cout << "\nTesting..." << endl << endl;
     queue<request> t;
     cout << BOLDWHITE << "ADD TESTS" << endl;
@@ -109,20 +109,20 @@ void test(Scheduler &s, bool keep)
     process_requests(s, t);
     if (!keep)
     {
-        s.students_classes_v = tmp;
+        s.classes_per_students_new = tmp;
     }
 }
 
 int main(int argc, char **argv)
 {
-    Scheduler s;
+    Creator s;
     s.initialize();
     string r;
     queue<request> q;
     Student student(s);
     Uc uc(s);
     Class class_(s);
-    Write write(s);
+    Writer write(s);
     while (true)
     {
         cout << BOLDWHITE << "\n------\n1 - View\n2 - Request\n3 - Process Requests" << RESET << "\n\nTo Save / Quit, use vim-like commands" << BOLDWHITE << endl << endl;
@@ -237,11 +237,11 @@ int main(int argc, char **argv)
                 cin >> code;
                 cout << "\n---\nUCs:" << endl;
                 map<string, string> c;
-                for (int i = 0; i < s.students_classes_v.size(); i++)
+                for (int i = 0; i < s.classes_per_students_new.size(); i++)
                 {
-                    if (s.students_classes_v[i].StudentCode == code || s.students_classes_v[i].StudentName == code)
+                    if (s.classes_per_students_new[i].StudentCode == code || s.classes_per_students_new[i].StudentName == code)
                     {
-                        c[s.students_classes_v[i].UcCode] = s.students_classes_v[i].ClassCode;
+                        c[s.classes_per_students_new[i].UcCode] = s.classes_per_students_new[i].ClassCode;
                     }
                 }
                 for (pair<string, string> cc : c)
@@ -268,11 +268,11 @@ int main(int argc, char **argv)
                     continue;
                 }
                 cout << "\n---\nClasses:" << endl;
-                for (int i = 0; i < s.classes_per_uc_v.size(); i++)
+                for (int i = 0; i < s.classes_per_uc_new.size(); i++)
                 {
-                    if (s.classes_per_uc_v[i].UcCode == r && s.is_balanced(s.classes_per_uc_v[i].UcCode, s.classes_per_uc_v[i].ClassCode))
+                    if (s.classes_per_uc_new[i].UcCode == r && s.is_balanced(s.classes_per_uc_new[i].UcCode, s.classes_per_uc_new[i].ClassCode))
                     {
-                        cout << RESET << s.classes_per_uc_v[i].ClassCode << endl;
+                        cout << RESET << s.classes_per_uc_new[i].ClassCode << endl;
                     }
                 }
                 string rr;
@@ -294,11 +294,11 @@ int main(int argc, char **argv)
                 cin >> code;
                 cout << "\n---\nUCs:" << endl;
                 map<string, string> c;
-                for (int i = 0; i < s.students_classes_v.size(); i++)
+                for (int i = 0; i < s.classes_per_students_new.size(); i++)
                 {
-                    if (s.students_classes_v[i].StudentCode == code || s.students_classes_v[i].StudentName == code)
+                    if (s.classes_per_students_new[i].StudentCode == code || s.classes_per_students_new[i].StudentName == code)
                     {
-                        c[s.students_classes_v[i].UcCode] = s.students_classes_v[i].ClassCode;
+                        c[s.classes_per_students_new[i].UcCode] = s.classes_per_students_new[i].ClassCode;
                     }
                 }
                 for (pair<string, string> cc : c)
@@ -314,11 +314,11 @@ int main(int argc, char **argv)
                     continue;
                 }
                 cout << "\n---\nClasses:" << endl;
-                for (int i = 0; i < s.classes_per_uc_v.size(); i++)
+                for (int i = 0; i < s.classes_per_uc_new.size(); i++)
                 {
-                    if (s.classes_per_uc_v[i].UcCode == uccode && s.is_balanced(s.classes_per_uc_v[i].UcCode, s.classes_per_uc_v[i].ClassCode))
+                    if (s.classes_per_uc_new[i].UcCode == uccode && s.is_balanced(s.classes_per_uc_new[i].UcCode, s.classes_per_uc_new[i].ClassCode))
                     {
-                        cout << RESET << s.classes_per_uc_v[i].ClassCode << endl;
+                        cout << RESET << s.classes_per_uc_new[i].ClassCode << endl;
                     }
                 }
                 string newclass;

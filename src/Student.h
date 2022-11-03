@@ -1,7 +1,7 @@
 #ifndef _STUDENT_H_
 #define _STUDENT_H_
 
-#include "Scheduler.h"
+#include "Creator.h"
 #include "Sorter.h"
 #include "Writer.h"
 #include <algorithm>
@@ -16,9 +16,9 @@ using namespace std;
 class Student
 {
   private:
-    Scheduler &s;
+    Creator &s;
   public:
-    Student(Scheduler &s);
+    Student(Creator &s);
     void get_schedule(string studentcode);
 };
 

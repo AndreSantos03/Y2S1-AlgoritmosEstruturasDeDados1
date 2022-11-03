@@ -4,7 +4,7 @@
 #define BOLDWHITE "\033[1m\033[37m"
 #define RED "\033[31m"
 
-Student::Student(Scheduler &new_s) : s(new_s)
+Student::Student(Creator &new_s) : s(new_s)
 {
 }
 
@@ -13,18 +13,18 @@ void Student::get_schedule(string studentcode)
     cout << RESET << "---\nSchedule from Student " << studentcode << ":" << endl << endl;
     vector<vector<string>> p;
     map<string, string> tmp;
-    for (int i = 0; i < s.students_classes_v.size(); i++)
+    for (int i = 0; i < s.classes_per_students_new.size(); i++)
     {
-        if (s.students_classes_v.at(i).StudentCode == studentcode || s.students_classes_v.at(i).StudentName == studentcode)
+        if (s.classes_per_students_new.at(i).StudentCode == studentcode || s.classes_per_students_new.at(i).StudentName == studentcode)
         {
-            tmp[s.students_classes_v.at(i).UcCode] = s.students_classes_v.at(i).ClassCode;
+            tmp[s.classes_per_students_new.at(i).UcCode] = s.classes_per_students_new.at(i).ClassCode;
         }
     }
-    for (int i = 0; i < s.classes_v.size(); i++)
+    for (int i = 0; i < s.classes_new.size(); i++)
     {
-        if (s.classes_v.at(i).ClassCode == tmp[s.classes_v.at(i).UcCode])
+        if (s.classes_new.at(i).ClassCode == tmp[s.classes_new.at(i).UcCode])
         {
-            p.push_back({s.classes_v.at(i).UcCode, s.classes_v.at(i).ClassCode, s.classes_v.at(i).Weekday, s.classes_v.at(i).StartHour, s.classes_v.at(i).Duration, s.classes_v.at(i).Type});
+            p.push_back({s.classes_new.at(i).UcCode, s.classes_new.at(i).ClassCode, s.classes_new.at(i).WeekDay, s.classes_new.at(i).StartHour, s.classes_new.at(i).Duration, s.classes_new.at(i).Type});
         }
     }
 

@@ -3,7 +3,7 @@
 #define RESET "\033[0m"
 using namespace std;
 
-Class::Class(Scheduler &new_s) : s(new_s)
+Class::Class(Creator &new_s) : s(new_s)
 {
 }
 
@@ -14,14 +14,14 @@ void Class::get_students(string classcode)
     cin >> order;
     cout << RESET << "---\nAll Students that have the Class " << classcode << ":" << endl << endl;
     vector<pair<string, string>> p;
-    for (int i = 0; i < s.students_classes_v.size(); i++)
+    for (int i = 0; i < s.classes_per_students_new.size(); i++)
     {
-        if (s.students_classes_v.at(i).ClassCode == classcode)
+        if (s.classes_per_students_new.at(i).ClassCode == classcode)
         {
             bool a = true;
             for (int j = 0; j < p.size(); j++)
             {
-                if (s.students_classes_v.at(i).StudentCode == p.at(j).second)
+                if (s.classes_per_students_new.at(i).StudentCode == p.at(j).second)
                 {
                     a = false;
                     break;
@@ -29,7 +29,7 @@ void Class::get_students(string classcode)
             }
             if (a)
             {
-                p.push_back({s.students_classes_v.at(i).StudentName, s.students_classes_v.at(i).StudentCode});
+                p.push_back({s.classes_per_students_new.at(i).StudentName, s.classes_per_students_new.at(i).StudentCode});
             }
         }
     }
@@ -40,7 +40,7 @@ void Class::get_students(string classcode)
     }
     else if (order == "2")
     {
-        sort(p.begin(), p.end(), sortNumerically);
+        sort(p.begin(), p.end(), sortNumber);
     }
     else
     {
@@ -56,14 +56,14 @@ void Class::get_students(string classcode)
 
 void Class::get_schedule(string classcode)
 {
-    vector<classes> tmp = s.classes_v;
+    vector<classes> tmp = s.classes_new;
     cout << RESET << "---\nSchedule from class " << classcode << ":" << endl << endl;
     vector<vector<string>> p;
     for (int i = 0; i < tmp.size(); i++)
     {
         if (tmp.at(i).ClassCode == classcode)
         {
-            p.push_back({tmp.at(i).UcCode, tmp.at(i).ClassCode, tmp.at(i).Weekday, tmp.at(i).StartHour, tmp.at(i).Duration, tmp.at(i).Type});
+            p.push_back({tmp.at(i).UcCode, tmp.at(i).ClassCode, tmp.at(i).WeekDay, tmp.at(i).StartHour, tmp.at(i).Duration, tmp.at(i).Type});
         }
     }
 

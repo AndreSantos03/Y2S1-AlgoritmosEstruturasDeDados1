@@ -16,9 +16,9 @@ using namespace std;
 class Writer
 {
   private:
-    Scheduler &s;
+    Creator &s;
   public:
-    Write(Scheduler &s);
+    Writer(Creator &s);
     bool write();
 };
 
