@@ -1,6 +1,18 @@
+/**
+ * @file Read.cpp
+ * Funções para ler ficheiros
+ */
+
 #include "Reader.h"
 
 #define RESET "\033[0m"
+
+/**
+ * @brief
+ * abre o ficheiro classes_per_uc, verifica se não está aberto(se existe), e cria uma vetor com a informação;
+ * Complexidade: n
+ * @return vector<classes_per_uc> devolve um vetor com a informação, se nao existir ficheiro devolve um vetor vazio
+ */
 
 vector<classes_per_uc> Reader::read_classes_per_uc()
 {
@@ -30,6 +42,12 @@ vector<classes_per_uc> Reader::read_classes_per_uc()
     return v;
 }
 
+/**
+ * @brief
+ * abre o ficheiro classes, verifica se não está aberto(se existe), e cria uma vetor com a informação;
+ * Complexidade: n
+ * @return vector<classes> devolve um vetor com a informação, se nao existir ficheiro devolve um vetor vazio
+ */
 
 vector<classes> Reader::read_classes()
 {
@@ -67,6 +85,13 @@ vector<classes> Reader::read_classes()
     return v;
 }
 
+/**
+ * @brief
+ * abre o ficheiro classes_per_students, verifica se não está aberto(se existe), e cria uma vetor com a informação
+ * Complexidade: n
+ * @return vector<classes_per_students> vector<classes> devolve um vetor com a informação, se nao existir ficheiro devolve
+ * um vetor vazio
+ */
 
 vector<classes_per_students> Reader::read_students_class()
 {

@@ -29,11 +29,9 @@ if(DOXYGEN_FOUND)
     if(NOT EXISTS "${BUILD_DOC_DIR}")
         file(MAKE_DIRECTORY "${BUILD_DOC_DIR}")
     endif()
-
     set(DOXYGEN_IN "${CMAKE_CURRENT_SOURCE_DIR}/docs/Doxyfile")
     set(DOXYGEN_OUT "${CMAKE_CURRENT_BINARY_DIR}/Doxyfile")
     configure_file("${DOXYGEN_IN}" "${DOXYGEN_OUT}" @ONLY)
-
     message("Doxygen build started")
     add_custom_target(Doxygen ALL
             COMMAND "${DOXYGEN_EXECUTABLE}" "${DOXYGEN_OUT}"

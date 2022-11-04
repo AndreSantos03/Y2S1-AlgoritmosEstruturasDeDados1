@@ -1,3 +1,8 @@
+/**
+ * @file Class.h
+ * Funções que usam como base uma Class
+ */
+
 #ifndef _CLASS_H_
 #define _CLASS_H_
 

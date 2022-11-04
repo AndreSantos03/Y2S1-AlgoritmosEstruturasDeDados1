@@ -1,3 +1,8 @@
+/**
+ * @file Sort.h
+ * Funções para ordenar vetores
+ */
+
 #ifndef _SORTER_H_
 #define _SORTER_H_
 

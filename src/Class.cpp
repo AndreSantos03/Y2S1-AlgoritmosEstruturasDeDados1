@@ -1,11 +1,30 @@
+/**
+ * @file Class.cpp
+ * Funções que usam como base uma Class
+ */
+
 #include "Class.h"
 
 #define RESET "\033[0m"
 using namespace std;
 
+/**
+ * @brief
+ * Construtor de new Class:: Class object
+ *
+ * @param new_s referência do creator
+ */
+
 Class::Class(Creator &new_s) : s(new_s)
 {
 }
+
+/**
+ * @brief
+ * cria um vetor de pares com (Nome do aluno, codigo do aluno) de uma Class e ordena o de acordo com o que o utilizador escolhe(1 para ordem alfabética e 2 para ordem numérica);
+ * Complexidade: n
+ * @param classcode
+ */
 
 void Class::get_students(string classcode)
 {
@@ -53,6 +72,15 @@ void Class::get_students(string classcode)
         cout << p.at(i).first << " - " << p.at(i).second << endl;
     }
 }
+
+/**
+ * @brief
+ * cria um vetor com o UcCode, o dia da semana, a que horas começa, quanto tempo dura, e o tipo;
+ * cria um vetor para cada dia da semana com: espaços vazios, "-", UcCode e o tipo;
+ * Imprime no terminal o horario de uma class;
+ * Complexidade: n
+ * @param classcode
+ */
 
 void Class::get_schedule(string classcode)
 {

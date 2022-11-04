@@ -1,9 +1,19 @@
+/**
+ * @file Creator.cpp
+ * Inicializa todos os vetores
+ */
+
 #include "Creator.h"
 
 #define RESET "\033[0m"
 #define BOLDWHITE "\033[1m\033[37m"
 #define RED "\033[31m"
 int CAP = 30;
+
+/**
+ * @brief
+ * inicializa vetores e cria vetores a partir da leitura de ficheiros
+ */
 
 void Creator::initialize()
 {
@@ -14,6 +24,12 @@ void Creator::initialize()
     initialize_uc_classes();
     initialize_ocupation();
 }
+
+/**
+ * @brief
+ * cria um vetor com todas as turmas
+ * Complexidade: n
+ */
 
 void Creator::initialize_uc_classes()
 {
@@ -37,6 +53,14 @@ void Creator::initialize_uc_classes()
 
 vector<pair<string, int>> c = {{"8", 0}, {"8.5", 2}, {"9", 4}, {"9.5", 6}, {"10", 8}, {"10.5", 10}, {"11", 12}, {"11.5", 14}, {"12", 16}, {"12.5", 18}, {"13", 20}, {"13.5", 22}, {"14", 24}, {"14.5", 26}, {"15", 28}, {"15.5", 30}, {"16", 32}, {"16.5", 34}, {"17", 36}, {"17.5", 38}, {"18", 40}, {"18.5", 42}, {"19", 44}, {"19.5", 46}};
 map<string, int> d = {{"Monday", 0}, {"Tuesday", 1}, {"Wednesday", 2}, {"Thursday", 3}, {"Friday", 4}};
+
+/**
+ * @brief
+ * cria um vetor que vai ser modificado com separadores de acordo com a duração da aula e quando começa, o UcCode, a Class, e o tipo;
+ * Complexidade: n*m(aonde m é ou 3 ou 5 ou 7)
+ * @param p vetor com a UcCode, a turma, o dia da semana, a hora a que começa, a duração e o tipo
+ * @return vector<vector<string>>
+ */
 
 vector<vector<string>> Creator::schedule(vector<vector<string>> p)
 {
@@ -149,6 +173,12 @@ vector<vector<string>> Creator::schedule(vector<vector<string>> p)
     return a;
 }
 
+/**
+ * @brief
+ * inicializa o vetor ocupation com a ocupação das turmas por UC;
+ * Complexidade: n*n*log(n) (n*log(n) vem da binary search)
+ */
+
 void Creator::initialize_ocupation()
 {
     for (int i = 0; i < classes_per_uc_new.size(); i++)
@@ -180,6 +210,12 @@ void Creator::initialize_ocupation()
     }
 }
 
+/**
+ * @brief
+ * Da cout da ocupação de alunos de todas as turmas ou de todas as UCs ou de uma UC;
+ * Complexidade: n*m
+ */
+
 void Creator::ocupation()
 {
     cout << BOLDWHITE << endl << "All UCs: all\nSpecific UC: L.EIC___" << endl << endl;
@@ -197,6 +233,17 @@ void Creator::ocupation()
         }
     }
 }
+
+/**
+ * @brief
+ * Remove um aluno de uma UC;
+ * Complexidade: n(remove_if)*m
+ * @param studentcode
+ * @param uccode
+ * @param classcode
+ * @return true remove um aluno de uma UC e turma
+ * @return false nao conseguiu remover o aluno de uma UC
+ */
 
 bool Creator::remove_class_uc(string studentcode, string uccode, string classcode)
 {
@@ -216,6 +263,16 @@ bool Creator::remove_class_uc(string studentcode, string uccode, string classcod
     }
     return false;
 }
+
+/**
+ * @brief
+ * verifica se as turmas ficam equilibradas com a troca pedida;
+ * Complexidade: n
+ * @param uccode
+ * @param classcode
+ * @return true permite a troca de turma
+ * @return false nao permite a troca de turma
+ */
 
 bool Creator::is_balanced(string uccode, string classcode)
 {
@@ -239,6 +296,18 @@ bool Creator::is_balanced(string uccode, string classcode)
     }
     return true;
 }
+
+/**
+ * @brief
+ * verifica se a uc e valida, se a de turma nao provoca desiquilibrios e se não se sobrepõem aulas no horario do aluno;
+ * verifica se e possivel adicionar(se já nao pertence a turma);
+ * Complexidade: n
+ * @param studentcode
+ * @param uccode
+ * @param classcode
+ * @return adiciona um aluno a uma UC e turma
+ * @return false ou a uc nao e valida, ou a adição prova desiquilibrio, ou iria ter aulas sobrepostas ou
+ */
 
 bool Creator::add_to(string studentcode, string uccode, string classcode)
 {
@@ -307,6 +376,19 @@ bool Creator::add_to(string studentcode, string uccode, string classcode)
     return false;
 }
 
+/**
+ * @brief
+ * verifica se a uc e valida, se a troca de turma nao provoca desiquilibrios e se não se sobrepõem aulas no horario do aluno;
+ * troca o aluno de turma;
+ * Complexidade: n*m
+ * @param studentcode
+ * @param uccode
+ * @param classcode turma aonde o aluno está inscrito
+ * @param newclasscode turma para que o aluno quer mudar
+ * @return true troca o aluno de turma
+ * @return false nao foi possível trocar o aluno de turma
+ */
+
 bool Creator::change_class(string studentcode, string uccode, string classcode, string newclasscode)
 {
     if (!is_valid_uc_class(uccode, newclasscode))
@@ -347,6 +429,15 @@ bool Creator::change_class(string studentcode, string uccode, string classcode, 
     return false;
 }
 
+/**
+ * @brief
+ * Verifica se turma existe dentro da UC;
+ * Complexidade: n
+ * @param uccode
+ * @param classcode
+ * @return true a turma existe
+ * @return false a turma não existe
+ */
 
 bool Creator::is_valid_uc_class(string uccode, string classcode)
 {
@@ -360,6 +451,15 @@ bool Creator::is_valid_uc_class(string uccode, string classcode)
     return false;
 }
 
+/**
+ * @brief
+ * Verifica se a UC existe;
+ * Complexidade: n
+ * @param uccode
+ * @return true se a UC existe
+ * @return false se a UC não existe
+ */
+
 bool Creator::is_valid_uc(string uccode)
 {
     for (int i = 0; i < uc_classes_new.size(); i++)
@@ -372,6 +472,15 @@ bool Creator::is_valid_uc(string uccode)
     return false;
 }
 
+/**
+ * @brief
+ * Verifica se a turma existe:
+ * Complexidade: log(n)
+ * @param classcode
+ * @return true se a turma existe
+ * @return false se a turma não existe
+ */
+
 bool Creator::is_valid_class(string classcode)
 {
     if (all_classes_new.find(classcode) != all_classes_new.end())
@@ -380,6 +489,18 @@ bool Creator::is_valid_class(string classcode)
     }
     return false;
 }
+
+/**
+ * @brief
+ * Verifica se há para sobreposições com a troca de turma de aulas que não sejam do tipo T;
+ * Complexidade: n*m
+ * @param studentcode
+ * @param uc
+ * @param oldclass
+ * @param newclass
+ * @return true nao há sobreposiçôes, ou as sobreposiçôes for entre uma aula do tipo T e outra
+ * @return false há sobreposiçôes
+ */
 
 bool Creator::is_valid_schedule_change(string studentcode, string uc, string oldclass, string newclass)
 {

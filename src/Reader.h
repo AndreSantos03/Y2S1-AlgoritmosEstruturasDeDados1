@@ -1,3 +1,8 @@
+/**
+ * @file Read.h
+ * Funções para ler ficheiros
+ */
+
 #ifndef _READER_H_
 #define _READER_H_
 

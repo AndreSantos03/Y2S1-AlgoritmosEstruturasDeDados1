@@ -1,12 +1,32 @@
+/**
+ * @file Student.cpp
+ * Funções que usam student como base
+ */
+
 #include "Student.h"
 
 #define RESET "\033[0m"
 #define BOLDWHITE "\033[1m\033[37m"
 #define RED "\033[31m"
 
+/**
+ * @brief
+ * Construtor de new Student:: Student object
+ *
+ * @param new_s referência do creator
+ */
+
 Student::Student(Creator &new_s) : s(new_s)
-{
-}
+{}
+
+/**
+ * @brief
+ * cria um vetor com o UcCode, o dia da semana, a que horas começa, quanto tempo dura, e o tipo;
+ * cria um vetor para cada dia da semana com espaços vazios, separações, UcCode e o tipo;
+ * Imprime no terminal o horario de um aluno;
+ * Complexidade: n
+ * @param studentcode
+ */
 
 void Student::get_schedule(string studentcode)
 {

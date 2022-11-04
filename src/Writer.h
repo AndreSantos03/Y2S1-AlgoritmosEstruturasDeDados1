@@ -1,3 +1,8 @@
+/**
+ * @file Write.h
+ * Funções para reescrever ficheiros
+ */
+
 #ifndef _WRITER_H_
 #define _WRITER_H_
 

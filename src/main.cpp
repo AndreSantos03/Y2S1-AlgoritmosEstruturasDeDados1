@@ -1,3 +1,8 @@
+/**
+ * @file main.cpp
+ * Inicializa todas as classes, da end do input e do output e processa os pedidos de trocas de turma
+ */
+
 #include <iostream>
 #include "Class.h"
 #include "Creator.h"
@@ -15,6 +20,16 @@
 using namespace std;
 
 bool can_exit_clean = true;
+
+/**
+ * @brief
+ * Adiciona os pedidos de troca, adição e remoção de uma turma ou UC a uma queue;
+ * Efetua as mudanças se possível, caso não seja possível adiciona a outra queue;
+ * Complexidade: n(tamanho da queue)
+ * @param s referência do creator
+ * @param q queue com os pedidos
+ * @return queue<request>
+ */
 
 queue<request> process_requests(Creator &s, queue<request> q)
 {
@@ -75,6 +90,13 @@ queue<request> process_requests(Creator &s, queue<request> q)
     return q_fail;
 }
 
+/**
+ * @brief
+ * Testes para verificação e demostração do programa;
+ * @param s
+ * @param keep
+ */
+
 void test(Creator &s, bool keep)
 {
     vector<classes_per_students> tmp = s.classes_per_students_new;
@@ -112,6 +134,20 @@ void test(Creator &s, bool keep)
         s.classes_per_students_new = tmp;
     }
 }
+
+/**
+ * @brief
+ * Imprime as opções para o utilizador escolher( view, request, process request);
+ * Utiliza comandos vim para guardar e sair;
+ * Lê o input colocado do utilizador, e dependendo dele, imprime mais opções para o utilizador escolher o que pretender;
+ * No view, possibilita a visualização de forma ordenada de turmas, de alunos, da ocupação em UCs e dos horários quer do aluno, quer da Turma;
+ * Em Requests, adiciona os pedidos de remoção, adição ou troca de turma de um aluno a uma queue;
+ * Em Process requests, da para ou ver os pedidos, ou processar(aonde processa os requests possiveis, e mantem numa queue os que nao foram possiveis);
+ * Complexidade: m(entre 1(se o utilizador der logo quit) e infinito (se o utilizador continuar a usar o programa))*n
+ * @param argc
+ * @param argv
+ * @return int
+ */
 
 int main(int argc, char **argv)
 {

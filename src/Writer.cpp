@@ -1,12 +1,32 @@
+/**
+ * @file Write.cpp
+ * Funções para reescrever ficheiros
+ */
+
 #include "Writer.h"
 #include <climits>
 
 #define RESET "\033[0m"
 #define RED "\033[31m"
 
+/**
+ * @brief
+ * Construtor de new Write:: Write object
+ *
+ * @param new_s referência do writer
+ */
+
 Writer::Writer(Creator &new_s) : s(new_s)
 {
 }
+
+/**
+ * @brief
+ * Abre o ficheiro se ele existir, escreve num ficheiro novo o vetor com nome do estudante, codigo,UC e class. Apaga o ficheiro antereior e da rename ao novo com o mesmo nome;
+ * Complexidade: n
+ * @return true
+ * @return false se o ficheiro nao existir
+ */
 
 bool Writer::write()
 {

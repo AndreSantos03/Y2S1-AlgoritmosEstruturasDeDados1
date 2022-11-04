@@ -1,3 +1,0 @@
-C:/Users/Aluno/Desktop/tmp/Schedule/cmake-build-debug/CMakeFiles/schedule.dir
-C:/Users/Aluno/Desktop/tmp/Schedule/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Aluno/Desktop/tmp/Schedule/cmake-build-debug/CMakeFiles/rebuild_cache.dir

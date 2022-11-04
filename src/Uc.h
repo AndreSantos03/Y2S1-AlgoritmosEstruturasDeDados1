@@ -1,3 +1,8 @@
+/**
+ * @file Uc.h
+ * Funções que usam como base uma UC
+ */
+
 #ifndef _UC_H_
 #define _UC_H_
 

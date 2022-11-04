@@ -1,3 +1,8 @@
+/**
+ * @file Student.h
+ * Funções que usam student como base
+ */
+
 #ifndef _STUDENT_H_
 #define _STUDENT_H_
 

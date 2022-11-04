@@ -1,3 +1,8 @@
+/**
+ * @file structs.h
+ * defines the structs used
+ */
+
 #ifndef _STRUCTS_H_
 #define _STRUCTS_H_
 
