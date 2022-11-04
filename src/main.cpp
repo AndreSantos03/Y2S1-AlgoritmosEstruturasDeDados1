@@ -9,13 +9,6 @@
 #include "Student.h"
 #include "Uc.h"
 #include <queue>
-#define RESET "\033[0m"
-#define BOLDWHITE "\033[1m\033[37m"
-#define RED "\033[31m"
-#define VIMERR "\e[38;5;015m\e[48;2;255;0;0m"
-#define GREEN "\033[32m"
-#define BLUE "\033[34m"
-#define YELLOW "\033[33m"
 
 using namespace std;
 
@@ -153,7 +146,7 @@ int main(int argc, char **argv)
 {
     Creator s;
     s.initialize();
-    string r;
+    string reply;
     queue<request> q;
     Student student(s);
     Uc uc(s);
@@ -161,174 +154,166 @@ int main(int argc, char **argv)
     Writer write(s);
     while (true)
     {
-        cout << BOLDWHITE << "\n------\n1 - View\n2 - Request\n3 - Process Requests" << RESET << "\n\nTo Save / Quit, use vim-like commands" << BOLDWHITE << endl << endl;
-        cin >> r;
-        if (r == "1")
+        cout << "1: Viewer\t2: Request\t3: Get Requests to be Processed\nq: Quit Application"<< endl;
+        cin >> reply;
+        if (reply == "1")
         {
-            cout << "---\n1 - Get Classes\n2 - Get Students\n3 - Get Schedule\n4 - Get ocupation" << endl << endl;
-            cin >> r;
-            if (r == "1")
+            cout << "1: View Classes\t2:iew Students\t3: View Schedule\t4: View Ocupation" << endl;
+            cin >> reply;
+            if (reply == "1")
             {
-                cout << "---\nFrom:\n\n1 - UC" << endl << endl;
-                cin >> r;
-                if (r == "1")
+                cout << "UC" << endl << endl;
+                cin >> reply;
+                cout << "Enter UC Code (ex:L.EIC005):" << endl << endl;
+                string code;
+                cin >> code;
+                while (!s.is_valid_uc(code))
                 {
-                    cout << "---\nUC Code (ex: L.EIC001):" << endl << endl;
-                    string code;
+                    cout << "Invalid UC Code!" << endl;
                     cin >> code;
-                    while (!s.is_valid_uc(code))
-                    {
-                        cout << RED << "---\nInvalid UC Code." << RESET << endl;
-                        cin >> code;
-                    }
-                    uc.get_classes(code);
                 }
-                else
-                {
-                    cout << RED << "---\nInvalid choice." << RESET << endl;
-                    continue;
-                }
+                uc.get_classes(code);
             }
-            else if (r == "2")
+            else if (reply == "2")
             {
-                cout << "---\nFrom:\n\n1 - UC\n2 - Class" << endl << endl;
-                cin >> r;
-                if (r == "1")
+                cout << "From:\n1: UC\t2: Class" << endl;
+                cin >> reply;
+                if (reply == "1")
                 {
-                    cout << "---\nUC Code (ex: L.EIC001):" << endl << endl;
+                    cout << "Enter UC Code (ex:L.EIC005):" << endl;
                     string code;
                     cin >> code;
                     while (!s.is_valid_uc(code))
                     {
-                        cout << RED << "---\nInvalid UC Code." << RESET << endl;
+                        cout << "Invalid UC Code!" << endl;
                         cin >> code;
                     }
                     uc.get_students(code);
                 }
-                else if (r == "2")
+                else if (reply == "2")
                 {
-                    cout << "---\nClass Code (ex: 1LEIC01):" << endl << endl;
+                    cout << "Enter Class Code (ex:2LEIC07):" << endl;
                     string code;
                     cin >> code;
                     while (!s.is_valid_class(code))
                     {
-                        cout << RED << "---\nInvalid Class Code." << RESET << endl;
+                        cout << "Invalid Class Code!" << endl;
                         cin >> code;
                     }
                     class_.get_students(code);
                 }
                 else
                 {
-                    cout << RED << "---\nInvalid choice." << RESET << endl;
+                    cout << "Invalid option!" << endl;
                     continue;
                 }
             }
-            else if (r == "3")
+            else if (reply == "3")
             {
-                cout << "---\nFrom:\n\n1 - Class\n2 - Student" << endl << endl;
-                cin >> r;
-                if (r == "1")
+                cout << "From:\n1: Class\t2: Student"  << endl;
+                cin >> reply;
+                if (reply == "1")
                 {
-                    cout << "---\nClass Code (ex: 1LEIC01):" << endl << endl;
+                    cout << "Enter Class Code (ex:7LEIC07):" << endl;
                     string code;
                     cin >> code;
                     while (!s.is_valid_class(code))
                     {
-                        cout << RED << "---\nInvalid Class Code." << RESET << endl;
+                        cout << "Invalid Class Code!" << endl;
                         cin >> code;
                     }
                     class_.get_schedule(code);
                 }
-                else if (r == "2")
+                else if (reply == "2")
                 {
-                    cout << "---\nStudent Name / Code (ex: Ronaldo / 202045037):" << endl << endl;
-                    string code;
-                    cin >> code;
-                    student.get_schedule(code);
+                    cout << "Enter Name / Code (ex: Jonas / 202000000):" << endl;
+                    string studentcode;
+                    cin >> studentcode;
+                    student.get_schedule(studentcode);
                 }
                 else
                 {
-                    cout << RED << "---\nInvalid choice." << RESET << endl;
+                    cout << "Invalid option!" << endl;
                     continue;
                 }
             }
-            else if (r == "4")
+            else if (reply == "4")
             {
                 s.ocupation();
             }
             else
             {
-                cout << RED << "---\nInvalid choice." << RESET << endl;
+                cout << "Invalid option!" << endl;
                 continue;
             }
         }
-        else if (r == "2")
+        else if (reply == "2")
         {
-            cout << "---\n1 - Remove Student from UC\n2 - Add Student to UC\n3 - Change Student's Class" << endl << endl;
-            cin >> r;
-            if (r == "1")
+            cout << "1: Remove Student from an UC\t2: Add Student to an UC\t3: Change Student to Another Class" << endl;
+            cin >> reply;
+            if (reply == "1")
             {
-                cout << "---\nStudent Name / Code (ex: Ronaldo / 202045037):" << endl << endl;
-                string code;
-                cin >> code;
-                cout << "\n---\nUCs:" << endl;
+                cout << "Enter Name / Code (ex: Jonas / 202000000):" << endl;
+                string studentcode;
+                cin >> studentcode;
+                cout << "UCs:" << endl;
                 map<string, string> c;
                 for (int i = 0; i < s.classes_per_students_new.size(); i++)
                 {
-                    if (s.classes_per_students_new[i].StudentCode == code || s.classes_per_students_new[i].StudentName == code)
+                    if (s.classes_per_students_new[i].StudentCode == studentcode || s.classes_per_students_new[i].StudentName == studentcode)
                     {
                         c[s.classes_per_students_new[i].UcCode] = s.classes_per_students_new[i].ClassCode;
                     }
                 }
                 for (pair<string, string> cc : c)
                 {
-                    cout << RESET << cc.first << endl;
+                    cout << cc.first << endl;
                 }
                 string uccode;
-                cout << "\n---\nUC Code:" << endl << endl;
+                cout << "Enter Original UC Code (ex: L.EIC007):" << endl;
                 cin >> uccode;
 
-                q.push({"remove", code, uccode, c[uccode], ""});
-                cout << BLUE << "\nAdded to queue" << endl;
+                q.push({"remove", studentcode, uccode, c[uccode], ""});
+                cout << "Added to queue!" << endl;
             }
-            else if (r == "2")
+            else if (reply == "2")
             {
-                cout << "---\nStudent Name / Code (ex: Ronaldo / 202045037):" << endl << endl;
-                string code;
-                cin >> code;
-                cout << "---\nTo UC (ex: L.EIC001):" << endl << endl;
-                cin >> r;
+                cout << "Enter Name / Code (ex: Jonas / 202000000):" << endl;
+                string studentcode;
+                cin >> studentcode;
+                cout << "Enter Destination UC Code (ex: L.EIC007):" << endl << endl;
+                cin >> reply;
                 if (!s.is_valid_uc(r))
                 {
-                    cout << RED << "---\nInvalid Uc Code." << RESET << endl;
+                    cout << "Invalid Uc Code!" << endl;
                     continue;
                 }
-                cout << "\n---\nClasses:" << endl;
+                cout << "Enter Original Classes:" << endl;
                 for (int i = 0; i < s.classes_per_uc_new.size(); i++)
                 {
                     if (s.classes_per_uc_new[i].UcCode == r && s.is_balanced(s.classes_per_uc_new[i].UcCode, s.classes_per_uc_new[i].ClassCode))
                     {
-                        cout << RESET << s.classes_per_uc_new[i].ClassCode << endl;
+                        cout << s.classes_per_uc_new[i].ClassCode << endl;
                     }
                 }
                 string rr;
-                cout << "\n---\nTo Class:" << endl << endl;
+                cout << "Enter Destination Class:" << endl << endl;
                 cin >> rr;
-                if (!s.is_valid_uc_class(r, rr))
+                if (!s.is_valid_uc_class(reply, rr))
                 {
-                    cout << RED << "---\nInvalid UC / Class combination." << endl;
+                    cout << "Invalid UC and/or Class combination!" << endl;
                     continue;
                 }
 
-                q.push({"add", code, r, rr, ""});
-                cout << BLUE << "\nAdded to queue" << endl;
+                q.push({"add", studentcode, reply, rr, ""});
+                cout << "Added to queue!" << endl;
             }
-            else if (r == "3")
+            else if (reply == "3")
             {
-                cout << "---\nStudent Name / Code (ex: Ronaldo / 202045037):" << endl << endl;
+                cout << "Enter Name / Code (ex: Jonas / 202000000):" << endl;
                 string code;
                 cin >> code;
-                cout << "\n---\nUCs:" << endl;
+                cout << "Enter UCs:" << endl;
                 map<string, string> c;
                 for (int i = 0; i < s.classes_per_students_new.size(); i++)
                 {
@@ -339,22 +324,22 @@ int main(int argc, char **argv)
                 }
                 for (pair<string, string> cc : c)
                 {
-                    cout << RESET << cc.first << endl;
+                    cout << cc.first << endl;
                 }
-                cout << "\n---\nChange Class of UC:" << endl << endl;
+                cout << "Enter Class of UC to be Changed:" << endl;
                 string uccode;
                 cin >> uccode;
                 if (!s.is_valid_uc(uccode))
                 {
-                    cout << RED << "---\nInvalid Uc Code." << RESET << endl;
+                    cout << "Invalid Uc Code!" << endl;
                     continue;
                 }
-                cout << "\n---\nClasses:" << endl;
+                cout << "Enter Original Classes:" << endl;
                 for (int i = 0; i < s.classes_per_uc_new.size(); i++)
                 {
                     if (s.classes_per_uc_new[i].UcCode == uccode && s.is_balanced(s.classes_per_uc_new[i].UcCode, s.classes_per_uc_new[i].ClassCode))
                     {
-                        cout << RESET << s.classes_per_uc_new[i].ClassCode << endl;
+                        cout << s.classes_per_uc_new[i].ClassCode << endl;
                     }
                 }
                 string newclass;
@@ -370,7 +355,7 @@ int main(int argc, char **argv)
             }
             else
             {
-                cout << RED << "---\nInvalid choice." << RESET << endl;
+                cout << RED << "---\nInvalid option!" << RESET << endl;
                 continue;
             }
         }
@@ -400,7 +385,7 @@ int main(int argc, char **argv)
             }
             else
             {
-                cout << RED << "---\nInvalid choice." << RESET << endl;
+                cout << RED << "---\nInvalid option!" << RESET << endl;
                 continue;
             }
         }
@@ -443,21 +428,12 @@ int main(int argc, char **argv)
             }
             return 0;
         }
-        else if (r == ":q!")
-        {
+        else if (r == "q") {
             return 0;
-        }
-        else if (r == ":test")
-        {
-            test(s, false);
-        }
-        else if (r == ":testkeep")
-        {
-            test(s, true);
         }
         else
         {
-            cout << RED << "---\nInvalid choice." << RESET << endl;
+            cout << "Invalid option!" << endl;
             continue;
         }
     }

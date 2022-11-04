@@ -1,0 +1,3 @@
+/home/andresantos/Desktop/Schedule/build/CMakeFiles/schedule.dir
+/home/andresantos/Desktop/Schedule/build/CMakeFiles/edit_cache.dir
+/home/andresantos/Desktop/Schedule/build/CMakeFiles/rebuild_cache.dir

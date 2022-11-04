@@ -8,7 +8,7 @@
 
 #include "Sorter.h"
 #include "Reader.h"
-#include "Structs.h"
+#include "structs.h"
 #include <climits>
 #include <fstream>
 #include <iostream>

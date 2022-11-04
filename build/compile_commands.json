@@ -1,0 +1,42 @@
+[
+{
+  "directory": "/home/andresantos/Desktop/Schedule/build",
+  "command": "/usr/bin/g++ -I/home/andresantos/Desktop/Schedule/src -g   -g -o CMakeFiles/schedule.dir/src/main.cpp.o -c /home/andresantos/Desktop/Schedule/src/main.cpp",
+  "file": "/home/andresantos/Desktop/Schedule/src/main.cpp"
+},
+{
+  "directory": "/home/andresantos/Desktop/Schedule/build",
+  "command": "/usr/bin/g++ -I/home/andresantos/Desktop/Schedule/src -g   -g -o CMakeFiles/schedule.dir/src/Reader.cpp.o -c /home/andresantos/Desktop/Schedule/src/Reader.cpp",
+  "file": "/home/andresantos/Desktop/Schedule/src/Reader.cpp"
+},
+{
+  "directory": "/home/andresantos/Desktop/Schedule/build",
+  "command": "/usr/bin/g++ -I/home/andresantos/Desktop/Schedule/src -g   -g -o CMakeFiles/schedule.dir/src/Writer.cpp.o -c /home/andresantos/Desktop/Schedule/src/Writer.cpp",
+  "file": "/home/andresantos/Desktop/Schedule/src/Writer.cpp"
+},
+{
+  "directory": "/home/andresantos/Desktop/Schedule/build",
+  "command": "/usr/bin/g++ -I/home/andresantos/Desktop/Schedule/src -g   -g -o CMakeFiles/schedule.dir/src/Uc.cpp.o -c /home/andresantos/Desktop/Schedule/src/Uc.cpp",
+  "file": "/home/andresantos/Desktop/Schedule/src/Uc.cpp"
+},
+{
+  "directory": "/home/andresantos/Desktop/Schedule/build",
+  "command": "/usr/bin/g++ -I/home/andresantos/Desktop/Schedule/src -g   -g -o CMakeFiles/schedule.dir/src/Class.cpp.o -c /home/andresantos/Desktop/Schedule/src/Class.cpp",
+  "file": "/home/andresantos/Desktop/Schedule/src/Class.cpp"
+},
+{
+  "directory": "/home/andresantos/Desktop/Schedule/build",
+  "command": "/usr/bin/g++ -I/home/andresantos/Desktop/Schedule/src -g   -g -o CMakeFiles/schedule.dir/src/Sorter.cpp.o -c /home/andresantos/Desktop/Schedule/src/Sorter.cpp",
+  "file": "/home/andresantos/Desktop/Schedule/src/Sorter.cpp"
+},
+{
+  "directory": "/home/andresantos/Desktop/Schedule/build",
+  "command": "/usr/bin/g++ -I/home/andresantos/Desktop/Schedule/src -g   -g -o CMakeFiles/schedule.dir/src/Student.cpp.o -c /home/andresantos/Desktop/Schedule/src/Student.cpp",
+  "file": "/home/andresantos/Desktop/Schedule/src/Student.cpp"
+},
+{
+  "directory": "/home/andresantos/Desktop/Schedule/build",
+  "command": "/usr/bin/g++ -I/home/andresantos/Desktop/Schedule/src -g   -g -o CMakeFiles/schedule.dir/src/Creator.cpp.o -c /home/andresantos/Desktop/Schedule/src/Creator.cpp",
+  "file": "/home/andresantos/Desktop/Schedule/src/Creator.cpp"
+}
+]

@@ -6,7 +6,7 @@
 #ifndef _READER_H_
 #define _READER_H_
 
-#include "Structs.h"
+#include "structs.h"
 #include <fstream>
 #include <iostream>
 #include <sstream>
