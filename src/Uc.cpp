@@ -5,18 +5,16 @@
 
 #include "Uc.h"
 
-#define RESET "\033[0m"
-
 using namespace std;
 
 /**
  * @brief
  * Construtor de new Uc:: Uc object
  *
- * @param new_s referência do creator
+ * @param newStudent referência do creator
  */
 
-Uc::Uc(Creator &new_s) : s(new_s)
+Uc::Uc(Creator &newStudent) : student(newStudent)
 {
 }
 
@@ -24,24 +22,24 @@ Uc::Uc(Creator &new_s) : s(new_s)
  * @brief
  * cria um vetor de pares com (Nome do aluno, codigo do aluno) de uma UC e ordena o de acordo com o que o utilizador escolhe(1 para ordem alfabética e 2 para ordem numérica);
  * Complexidade: n*m
- * @param uccode numero da uc de qual se quer os alunos
+ * @param ucCode numero da uc de qual se quer os alunos
  */
 
-void Uc::get_students(string uccode)
+void Uc::get_students(string ucCode)
 {
-    string order;
-    cout << "---\nOrder:\n\n1 - Alphabetically\n2 - Numerically" << endl << endl;
-    cin >> order;
-    cout << RESET << "---\nAll Students that have the UC " << uccode << ":" << endl << endl;
-    vector<pair<string, string>> p;
-    for (int i = 0; i < s.classes_per_students_new.size(); i++)
+    string typeOrder;
+    cout << "Choose Order:\n1: Alphabetically\t2: Numerically" << endl;
+    cin >> typeOrder;
+    cout << "The students with said UC  " << ucCode << " are as followed: " << endl;
+    vector<pair<string, string>> studentVector;
+    for (int i = 0; i < student.classes_per_students_new.size(); i++)
     {
-        if (s.classes_per_students_new.at(i).UcCode == uccode)
+        if (student.classes_per_students_new.at(i).ucCode == ucCode)
         {
             bool a = true;
             for (int j = 0; j < p.size(); j++)
             {
-                if (s.classes_per_students_new.at(i).StudentCode == p.at(j).second)
+                if (student.classes_per_students_new.at(i).StudentCode == studentVector.at(j).second)
                 {
                     a = false;
                     break;
@@ -49,28 +47,28 @@ void Uc::get_students(string uccode)
             }
             if (a)
             {
-                p.push_back({s.classes_per_students_new.at(i).StudentName, s.classes_per_students_new.at(i).StudentCode});
+                studentVector.push_back({student.classes_per_students_new.at(i).StudentName, student.classes_per_students_new.at(i).StudentCode});
             }
         }
     }
 
-    if (order == "1")
+    if (typeOrder == "1")
     {
-        sort(p.begin(), p.end(), sortAlphabetically);
+        sort(studentVector.begin(), studentVector.end(), sortAlphabetically);
     }
-    else if (order == "2")
+    else if (typeOrder == "2")
     {
-        sort(p.begin(), p.end(), sortNumber);
+        sort(studentVector.begin(), studentVector.end(), sortNumber);
     }
     else
     {
-        cout << "---\nInvalid choice." << endl;
+        cout << "Invalid choice!" << endl;
         return;
     }
 
     for (int i = 0; i < p.size(); i++)
     {
-        cout << RESET << p.at(i).first << " - " << p.at(i).second << endl;
+        cout << studentVector.at(i).first << "  " << studentVector.at(i).second << endl;
     }
 }
 
@@ -78,17 +76,17 @@ void Uc::get_students(string uccode)
  * @brief
  * vai buscar todas as Classes que tem uma Uc;
  * Complexidade: n
- * @param uccode codigo da uc
+ * @param ucCode codigo da uc
  */
 
-void Uc::get_classes(string uccode)
+void Uc::get_classes(string ucCode)
 {
-    cout << RESET << "---\nAll Classes that have the UC " << uccode << ":" << endl << endl;
-    for (int i = 0; i < s.classes_per_uc_new.size(); i++)
+    cout << "The classes with the UC " << ucCode << " are as followed: " << endl << endl;
+    for (int i = 0; i < student.classes_per_uc_new.size(); i++)
     {
-        if (s.classes_per_uc_new.at(i).UcCode == uccode)
+        if (student.classes_per_uc_new.at(i).ucCode == ucCode)
         {
-            cout << s.classes_per_uc_new.at(i).ClassCode << endl;
+            cout << student.classes_per_uc_new.at(i).ClassCode << endl;
         }
     }
 }

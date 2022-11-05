@@ -6,17 +6,14 @@
 #include "Writer.h"
 #include <climits>
 
-#define RESET "\033[0m"
-#define RED "\033[31m"
-
 /**
  * @brief
  * Construtor de new Write:: Write object
  *
- * @param new_s referência do writer
+ * @param newStudent referência do writer
  */
 
-Writer::Writer(Creator &new_s) : s(new_s)
+Writer::Writer(Creator &newStudent) : student(newStudent)
 {
 }
 
@@ -34,13 +31,13 @@ bool Writer::write()
     fileout.open("../students_classeso.csv");
     if (!fileout.is_open())
     {
-        cout << "\nCould not open file" << endl;
+        cout << "Could not open file!" << endl;
         return false;
     }
     fileout << "StudentCode,StudentName,UcCode,ClassCode\r\n";
-    for (int i = 0; i < s.classes_per_students_new.size(); i++)
+    for (int i = 0; i < student.classes_per_students_new.size(); i++)
     {
-        fileout << s.classes_per_students_new[i].StudentCode << "," << s.classes_per_students_new[i].StudentName << "," << s.classes_per_students_new[i].UcCode << "," << s.classes_per_students_new[i].ClassCode << "\r\n";
+        fileout << student.classes_per_students_new[i].StudentCode << "," << student.classes_per_students_new[i].StudentName << "," << student.classes_per_students_new[i].UcCode << "," << s.classes_per_students_new[i].ClassCode << "\r\n";
     }
     fileout.close();
     remove("../students_classes.csv");

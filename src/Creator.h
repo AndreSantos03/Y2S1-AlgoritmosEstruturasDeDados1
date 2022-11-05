@@ -24,15 +24,15 @@ using namespace std;
 
 class Creator{
     public:
-        void initialize();
-        void initialize_uc_classes();
-        void initialize_ocupation();
-        vector<vector<string>> schedule(vector<vector<string>> p);
+        void initializion();
+        void classes_initialization();
+        void ocupation_initialization();
+        vector<vector<string>> scheduleMaker(vector<vector<string>> listScheduele);
         void ocupation();
-        bool remove_class_uc(string studentcode, string uccode, string classcode);
+        bool remove_class_from_uc(string studentcode, string uccode, string classcode);
         bool is_balanced(string uccode, string classcode);
         bool add_to(string studentcode, string uccode, string classcode);
-        bool change_class(string studentcode, string uccode, string classcode, string newclasscode);
+        bool class_changer(string studentcode, string uccode, string classcode, string newclasscode);
         bool is_valid_uc_class(string uccode, string classcode);
         bool is_valid_uc(string uccode);
         bool is_valid_class(string classcode);

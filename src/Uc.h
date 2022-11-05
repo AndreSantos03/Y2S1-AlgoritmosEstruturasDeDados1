@@ -18,9 +18,9 @@ using namespace std;
 class Uc
 {
   private:
-    Creator &s;
+    Creator &student;
   public:
-    Uc(Creator &s);
+    Uc(Creator &student);
     void get_students(string uccode);
     void get_classes(string uccode);
 };

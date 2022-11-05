@@ -5,8 +5,6 @@
 
 #include "Reader.h"
 
-#define RESET "\033[0m"
-
 /**
  * @brief
  * abre o ficheiro classes_per_uc, verifica se não está aberto(se existe), e cria uma vetor com a informação;
@@ -16,12 +14,12 @@
 
 vector<classes_per_uc> Reader::read_classes_per_uc()
 {
-    vector<classes_per_uc> v;
+    vector<classes_per_uc> r_vector;
     ifstream filein;
     filein.open("../classes_per_uc.csv");
     if (!filein.is_open())
     {
-        return v;
+        return r_vector;
     }
 
     string buffer;
@@ -30,16 +28,16 @@ vector<classes_per_uc> Reader::read_classes_per_uc()
     {
         stringstream line(buffer);
         string buf;
-        classes_per_uc p;
+        classes_per_uc rrrr;
         getline(line, buf, ',');
-        p.UcCode = buf;
+        rrrr.UcCode = buf;
         getline(line, buf, '\r');
-        p.ClassCode= buf;
-        v.push_back(p);
+        rrrr.ClassCode= buf;
+        r_vector.push_back(rrrr);
     }
 
     filein.close();
-    return v;
+    return r_vector;
 }
 
 /**
@@ -51,12 +49,12 @@ vector<classes_per_uc> Reader::read_classes_per_uc()
 
 vector<classes> Reader::read_classes()
 {
-    vector<classes> v;
+    vector<classes> r_vector;
     ifstream filein;
     filein.open("../classes.csv");
     if (!filein.is_open())
     {
-        return v;
+        return r_vector;
     }
 
     string buffer;
@@ -65,24 +63,24 @@ vector<classes> Reader::read_classes()
     {
         stringstream line(buffer);
         string buf;
-        classes p;
+        classes rrrr;
         getline(line, buf, ',');
-        p.ClassCode = buf;
+        rrrr.ClassCode = buf;
         getline(line, buf, ',');
-        p.UcCode = buf;
+        rrrr.UcCode = buf;
         getline(line, buf, ',');
-        p.WeekDay = buf;
+        rrrr.WeekDay = buf;
         getline(line, buf, ',');
-        p.StartHour = buf;
+        rrrr.StartHour = buf;
         getline(line, buf, ',');
-        p.Duration = buf;
+        rrrr.Duration = buf;
         getline(line, buf, '\r');
-        p.Type = buf;
-        v.push_back(p);
+        rrrr.Type = buf;
+        r_vector.push_back(rrrr);
     }
 
     filein.close();
-    return v;
+    return r_vector;
 }
 
 /**
@@ -95,12 +93,12 @@ vector<classes> Reader::read_classes()
 
 vector<classes_per_students> Reader::read_students_class()
 {
-    vector<classes_per_students> v;
+    vector<classes_per_students> r_vector;
     ifstream filein;
     filein.open("../students_classes.csv");
     if (!filein.is_open())
     {
-        return v;
+        return r_vector;
     }
 
     string buffer;
@@ -109,18 +107,18 @@ vector<classes_per_students> Reader::read_students_class()
     {
         stringstream line(buffer);
         string buf;
-        classes_per_students p;
+        classes_per_students rrrr;
         getline(line, buf, ',');
-        p.StudentCode = buf;
+        rrrr.StudentCode = buf;
         getline(line, buf, ',');
-        p.StudentName = buf;
+        rrrr.StudentName = buf;
         getline(line, buf, ',');
-        p.UcCode = buf;
+        rrrr.UcCode = buf;
         getline(line, buf, '\r');
-        p.ClassCode = buf;
-        v.push_back(p);
+        rrrr.ClassCode = buf;
+        r_vector.push_back(rrrr);
     }
 
     filein.close();
-    return v;
+    return r_vector;
 }

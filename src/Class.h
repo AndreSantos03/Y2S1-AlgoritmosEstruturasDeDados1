@@ -18,11 +18,11 @@ using namespace std;
 class Class
 {
   private:
-    Creator &s;
+    Creator &student;
   public:
-    Class(Creator &s);
-    void get_students(string classcode);
-    void get_schedule(string classcode);
+    Class(Creator &student);
+    void get_students(string classCode);
+    void get_schedule(string classDode);
 };
 
 #endif

@@ -5,9 +5,6 @@
 
 #include "Creator.h"
 
-#define RESET "\033[0m"
-#define BOLDWHITE "\033[1m\033[37m"
-#define RED "\033[31m"
 int CAP = 30;
 
 /**
@@ -15,14 +12,14 @@ int CAP = 30;
  * inicializa vetores e cria vetores a partir da leitura de ficheiros
  */
 
-void Creator::initialize()
+void Creator::initializion()
 {
-    Reader read;
-    classes_per_uc_new = read.read_classes_per_uc();
-    classes_new = read.read_classes();
-    classes_per_students_new = read.read_students_class();
-    initialize_uc_classes();
-    initialize_ocupation();
+    Reader r;
+    classes_per_uc_new = r.read_classes_per_uc();
+    classes_new = r.read_classes();
+    classes_per_students_new = r.read_students_class();
+    classes_initialization();
+    ocupation_initialization();
 }
 
 /**
@@ -31,7 +28,7 @@ void Creator::initialize()
  * Complexidade: n
  */
 
-void Creator::initialize_uc_classes()
+void Creator::classes_initialization()
 {
     int current_uc_index = -1;
     string current_uc = "";
@@ -58,13 +55,13 @@ map<string, int> d = {{"Monday", 0}, {"Tuesday", 1}, {"Wednesday", 2}, {"Thursda
  * @brief
  * cria um vetor que vai ser modificado com separadores de acordo com a duração da aula e quando começa, o UcCode, a Class, e o tipo;
  * Complexidade: n*m(aonde m é ou 3 ou 5 ou 7)
- * @param p vetor com a UcCode, a turma, o dia da semana, a hora a que começa, a duração e o tipo
+ * @param listScheduele vetor com a UcCode, a turma, o dia da semana, a hora a que começa, a duração e o tipo
  * @return vector<vector<string>>
  */
 
-vector<vector<string>> Creator::schedule(vector<vector<string>> p)
+vector<vector<string>> Creator::scheduleMaker(vector<vector<string>> listScheduele)
 {
-    vector<vector<string>> a = {{"           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ",
+    vector<vector<string>> spaces = {{"           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ",
                                  "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ",
                                  "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           "},
                                 {"           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ",
@@ -80,58 +77,58 @@ vector<vector<string>> Creator::schedule(vector<vector<string>> p)
                                  "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ",
                                  "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           ", "           "}};
 
-    for (int i = 0; i < p.size(); i++)
+    for (int i = 0; i < listScheduele.size(); i++)
     {
-        int h = (stof(p.at(i).at(3)) - 8) * 4;
-        if (p.at(i).at(5).size() > 1)
+        int h = (stof(listScheduele.at(i).at(3)) - 8) * 4;
+        if (listScheduele.at(i).at(5).size() > 1)
         {
-            if (a.at(d[p.at(i).at(2)]).at(h) == "           ")
+            if (spaces.at(d[listScheduele.at(i).at(2)]).at(h) == "           ")
             {
-                a.at(d[p.at(i).at(2)]).at(h) = "-----------";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h) = "_____________";
             }
-            if (p.at(i).at(4) == "1")
+            if (listScheduele.at(i).at(4) == "1")
             {
-                a.at(d[p.at(i).at(2)]).at(h + 1) = " " + p.at(i).at(0) + "  ";
-                a.at(d[p.at(i).at(2)]).at(h + 2) = " " + p.at(i).at(1) + "   ";
-                a.at(d[p.at(i).at(2)]).at(h + 3) = " " + p.at(i).at(5) + "        ";
-                a.at(d[p.at(i).at(2)]).at(h + 4) = "-----------";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 1) = " " + listScheduele.at(i).at(0) + "  ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 2) = " " + listScheduele.at(i).at(1) + "   ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 3) = " " + listScheduele.at(i).at(5) + "        ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 4) = "_____________";
             }
-            else if (p.at(i).at(4) == "1.5")
+            else if (listScheduele.at(i).at(4) == "1.5")
             {
-                a.at(d[p.at(i).at(2)]).at(h + 1) = "           ";
-                a.at(d[p.at(i).at(2)]).at(h + 2) = " " + p.at(i).at(0) + "  ";
-                a.at(d[p.at(i).at(2)]).at(h + 3) = " " + p.at(i).at(1) + "   ";
-                a.at(d[p.at(i).at(2)]).at(h + 4) = " " + p.at(i).at(5) + "        ";
-                a.at(d[p.at(i).at(2)]).at(h + 5) = "           ";
-                a.at(d[p.at(i).at(2)]).at(h + 6) = "-----------";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 1) = "           ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 2) = " " + listScheduele.at(i).at(0) + "  ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 3) = " " + listScheduele.at(i).at(1) + "   ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 4) = " " + listScheduele.at(i).at(5) + "        ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 5) = "           ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 6) = "_____________";
             }
             else
             {
-                a.at(d[p.at(i).at(2)]).at(h + 1) = "           ";
-                a.at(d[p.at(i).at(2)]).at(h + 2) = "           ";
-                a.at(d[p.at(i).at(2)]).at(h + 3) = " " + p.at(i).at(0) + "  ";
-                a.at(d[p.at(i).at(2)]).at(h + 4) = " " + p.at(i).at(1) + "   ";
-                a.at(d[p.at(i).at(2)]).at(h + 5) = " " + p.at(i).at(5) + "        ";
-                a.at(d[p.at(i).at(2)]).at(h + 6) = "           ";
-                a.at(d[p.at(i).at(2)]).at(h + 7) = "           ";
-                a.at(d[p.at(i).at(2)]).at(h + 8) = "-----------";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 1) = "           ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 2) = "           ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 3) = " " + listScheduele.at(i).at(0) + "  ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 4) = " " + listScheduele.at(i).at(1) + "   ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 5) = " " + listScheduele.at(i).at(5) + "        ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 6) = "           ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 7) = "           ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 8) = "_____________";
             }
         }
     }
-    for (int i = 0; i < p.size(); i++)
+    for (int i = 0; i < listScheduele.size(); i++)
     {
-        int h = (stof(p.at(i).at(3)) - 8) * 4;
-        if (p.at(i).at(5).size() == 1)
+        int h = (stof(listScheduele.at(i).at(3)) - 8) * 4;
+        if (listScheduele.at(i).at(5).size() == 1)
         {
-            if (a.at(d[p.at(i).at(2)]).at(h) == "           ")
+            if (spaces.at(d[listScheduele.at(i).at(2)]).at(h) == "           ")
             {
-                a.at(d[p.at(i).at(2)]).at(h) = "-----------";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h) = "_____________";
             }
 
             bool die = false;
-            for (float k = 1; k < (stof(p.at(i).at(4)) * 4); k++)
+            for (float k = 1; k < (stof(listScheduele.at(i).at(4)) * 4); k++)
             {
-                if (a.at(d[p.at(i).at(2)]).at(h + k) != "           ")
+                if (spaces.at(d[listScheduele.at(i).at(2)]).at(h + k) != "           ")
                 {
                     die = true;
                 }
@@ -141,36 +138,36 @@ vector<vector<string>> Creator::schedule(vector<vector<string>> p)
                 continue;
             }
 
-            if (p.at(i).at(4) == "1")
+            if (listScheduele.at(i).at(4) == "1")
             {
-                a.at(d[p.at(i).at(2)]).at(h + 1) = " " + p.at(i).at(0) + "  ";
-                a.at(d[p.at(i).at(2)]).at(h + 2) = " " + p.at(i).at(1) + "   ";
-                a.at(d[p.at(i).at(2)]).at(h + 3) = " " + p.at(i).at(5) + "         ";
-                a.at(d[p.at(i).at(2)]).at(h + 4) = "-----------";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 1) = " " + listScheduele.at(i).at(0) + "  ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 2) = " " + listScheduele.at(i).at(1) + "   ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 3) = " " + listScheduele.at(i).at(5) + "         ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 4) = "_____________";
             }
             else if (p.at(i).at(4) == "1.5")
             {
-                a.at(d[p.at(i).at(2)]).at(h + 1) = "           ";
-                a.at(d[p.at(i).at(2)]).at(h + 2) = " " + p.at(i).at(0) + "  ";
-                a.at(d[p.at(i).at(2)]).at(h + 3) = " " + p.at(i).at(1) + "   ";
-                a.at(d[p.at(i).at(2)]).at(h + 4) = " " + p.at(i).at(5) + "         ";
-                a.at(d[p.at(i).at(2)]).at(h + 5) = "           ";
-                a.at(d[p.at(i).at(2)]).at(h + 6) = "-----------";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 1) = "           ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 2) = " " + listScheduele.at(i).at(0) + "  ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 3) = " " + listScheduele.at(i).at(1) + "   ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 4) = " " + listScheduele.at(i).at(5) + "         ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 5) = "           ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 6) = "_____________";
             }
             else
             {
-                a.at(d[p.at(i).at(2)]).at(h + 1) = "           ";
-                a.at(d[p.at(i).at(2)]).at(h + 2) = "           ";
-                a.at(d[p.at(i).at(2)]).at(h + 3) = " " + p.at(i).at(0) + "  ";
-                a.at(d[p.at(i).at(2)]).at(h + 4) = " " + p.at(i).at(1) + "   ";
-                a.at(d[p.at(i).at(2)]).at(h + 5) = " " + p.at(i).at(5) + "         ";
-                a.at(d[p.at(i).at(2)]).at(h + 6) = "           ";
-                a.at(d[p.at(i).at(2)]).at(h + 7) = "           ";
-                a.at(d[p.at(i).at(2)]).at(h + 8) = "-----------";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 1) = "           ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 2) = "           ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 3) = " " + listScheduele.at(i).at(0) + "  ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 4) = " " + listScheduele.at(i).at(1) + "   ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 5) = " " + listScheduele.at(i).at(5) + "         ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 6) = "           ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 7) = "           ";
+                spaces.at(d[listScheduele.at(i).at(2)]).at(h + 8) = "_____________";
             }
         }
     }
-    return a;
+    return spaces;
 }
 
 /**
@@ -179,7 +176,7 @@ vector<vector<string>> Creator::schedule(vector<vector<string>> p)
  * Complexidade: n*n*log(n) (n*log(n) vem da binary search)
  */
 
-void Creator::initialize_ocupation()
+void Creator::ocupation_initialization()
 {
     for (int i = 0; i < classes_per_uc_new.size(); i++)
     {
@@ -218,17 +215,17 @@ void Creator::initialize_ocupation()
 
 void Creator::ocupation()
 {
-    cout << BOLDWHITE << endl << "All UCs: all\nSpecific UC: L.EIC___" << endl << endl;
-    string ci;
-    cin >> ci;
-    for (auto o : ocupation_new)
+    cout  << "For all UCs type all\tFor Specific UC type LEIC...: " << endl;
+    string ucAnswer;
+    cin >> ucAnswer;
+    for (auto ocup : ocupation_new)
     {
-        if (ci == "all" || ci == o.first)
+        if (ucAnswer == "all" || ucAnswer == ocup.first)
         {
-            cout << BOLDWHITE << endl << o.first << RESET << endl;
+            cout << ocup.first << endl;
             for (int j = 0; j < o.second.size(); j++)
             {
-                cout << o.second[j].first << " - " << o.second[j].second << endl;
+                cout << ocup.second[j].first << " - " << ocup.second[j].second << endl;
             }
         }
     }
@@ -245,12 +242,12 @@ void Creator::ocupation()
  * @return false nao conseguiu remover o aluno de uma UC
  */
 
-bool Creator::remove_class_uc(string studentcode, string uccode, string classcode)
+bool Creator::remove_class_from_uc(string studentcode, string uccode, string classcode)
 {
-    auto it = remove_if(classes_per_students_new.begin(), classes_per_students_new.end(), [uccode, classcode, studentcode](classes_per_students r) { return (r.UcCode == uccode && r.ClassCode == classcode && (r.StudentCode == studentcode || r.StudentName == studentcode)); });
-    if (it != classes_per_students_new.end())
+    auto iterator = remove_if(classes_per_students_new.begin(), classes_per_students_new.end(), [uccode, classcode, studentcode](classes_per_students r) { return (r.UcCode == uccode && r.ClassCode == classcode && (r.StudentCode == studentcode || r.StudentName == studentcode)); });
+    if (iterator != classes_per_students_new.end())
     {
-        classes_per_students_new.erase(it, classes_per_students_new.end());
+        classes_per_students_new.erase(iterator, classes_per_students_new.end());
         for (int i = 0; i < ocupation_new[uccode].size(); i++)
         {
             if (ocupation_new[uccode][i].first == classcode)
@@ -276,18 +273,18 @@ bool Creator::remove_class_uc(string studentcode, string uccode, string classcod
 
 bool Creator::is_balanced(string uccode, string classcode)
 {
-    auto o = ocupation_new[uccode];
+    auto ocup = ocupation_new[uccode];
     int min = INT_MAX;
     int cur = 0;
-    for (int j = 0; j < o.size(); j++)
+    for (int j = 0; j < ocup.size(); j++)
     {
-        if (o[j].second < min)
+        if (ocup[j].second < min)
         {
-            min = o[j].second;
+            min = ocup[j].second;
         }
-        if (o[j].first == classcode)
+        if (ocup[j].first == classcode)
         {
-            cur = o[j].second;
+            cur = ocup[j].second;
         }
     }
     if (cur + 1 - min >= 4 && cur < CAP)
@@ -313,53 +310,53 @@ bool Creator::add_to(string studentcode, string uccode, string classcode)
 {
     if (!is_valid_uc_class(uccode, classcode))
     {
-        cout << RED << "Invalid UC / Class combination - ";
+        cout < << "Invalid UC and Class combination!";
         return false;
     }
     if (!is_balanced(uccode, classcode))
     {
-        cout << RED << "Classes would be unbalanced - ";
+        cout << "Classes would be unbalanced!";
         return false;
     }
     if (!is_valid_schedule_change(studentcode, uccode, "", classcode))
     {
-        cout << RED << "Overlapping classes - ";
+        cout << "Overlapping classes!";
         return false;
     }
 
-    bool can_add = true;
+    bool is_addable = true;
     bool is_name = false;
-    string other_code = "";
+    string tmpCode = "";
     for (int i = 0; i < classes_per_students_new.size(); i++)
     {
         if (classes_per_students_new[i].StudentCode == studentcode)
         {
             is_name = false;
-            other_code = classes_per_students_new[i].StudentName;
+            tmpCode = classes_per_students_new[i].StudentName;
             if (classes_per_students_new[i].UcCode == uccode && classes_per_students_new[i].ClassCode == classcode)
             {
-                can_add = false;
+                is_addable = false;
             }
         }
         else if (classes_per_students_new[i].StudentName == studentcode)
         {
             is_name = true;
-            other_code = classes_per_students_new[i].StudentCode;
+            tmpCode = classes_per_students_new[i].StudentCode;
             if (classes_per_students_new[i].UcCode == uccode && classes_per_students_new[i].ClassCode == classcode)
             {
-                can_add = false;
+                is_addable = false;
             }
         }
     }
-    if (can_add)
+    if (is_addable)
     {
         if (is_name)
         {
-            classes_per_students_new.push_back({other_code, studentcode, uccode, classcode});
+            classes_per_students_new.push_back({tmpCode, studentcode, uccode, classcode});
         }
         else
         {
-            classes_per_students_new.push_back({studentcode, other_code, uccode, classcode});
+            classes_per_students_new.push_back({studentcode, tmpCode, uccode, classcode});
         }
 
         for (int i = 0; i < ocupation_new[uccode].size(); i++)
@@ -389,21 +386,21 @@ bool Creator::add_to(string studentcode, string uccode, string classcode)
  * @return false nao foi possível trocar o aluno de turma
  */
 
-bool Creator::change_class(string studentcode, string uccode, string classcode, string newclasscode)
+bool Creator::class_changer(string studentcode, string uccode, string classcode, string newclasscode)
 {
     if (!is_valid_uc_class(uccode, newclasscode))
     {
-        cout << RED << "Invalid UC / Class combination - ";
+        cout << "Invalid UC and Class combination - ";
         return false;
     }
     if (!is_balanced(uccode, newclasscode))
     {
-        cout << RED << "Classes would be unbalanced - ";
+        cout << "Classes would be unbalanced!";
         return false;
     }
     if (!is_valid_schedule_change(studentcode, uccode, classcode, newclasscode))
     {
-        cout << RED << "Overlapping classes - ";
+        cout << "Overlapping classes!";
         return false;
     }
 
@@ -504,22 +501,22 @@ bool Creator::is_valid_class(string classcode)
 
 bool Creator::is_valid_schedule_change(string studentcode, string uc, string oldclass, string newclass)
 {
-    vector<pair<string, string>> student_ucs_classes_v;
+    vector<pair<string, string>> student_ucs_classes;
     for (int i = 0; i < classes_per_students_new.size(); i++)
     {
         if ((classes_per_students_new[i].StudentCode == studentcode || classes_per_students_new[i].StudentName == studentcode) && !(classes_per_students_new[i].UcCode == uc && classes_per_students_new[i].ClassCode == oldclass))
         {
-            student_ucs_classes_v.push_back({classes_per_students_new[i].UcCode, classes_per_students_new[i].ClassCode});
+            student_ucs_classes.push_back({classes_per_students_new[i].UcCode, classes_per_students_new[i].ClassCode});
         }
     }
-    string weekday;
+    string day;
     float start = 0;
     float duration = 0;
     for (int i = 0; i < classes_new.size(); i++)
     {
         if (classes_new[i].UcCode == uc && classes_new[i].ClassCode == newclass && classes_new[i].Type.size() > 1)
         {
-            weekday = classes_new[i].WeekDay;
+            day = classes_new[i].day;
             start = stof(classes_new[i].StartHour);
             duration = stof(classes_new[i].Duration);
             break;
@@ -527,11 +524,11 @@ bool Creator::is_valid_schedule_change(string studentcode, string uc, string old
     }
     for (int i = 0; i < classes_new.size(); i++)
     {
-        if (weekday == classes_new[i].WeekDay && classes_new[i].Type.size() > 1)
+        if (day == classes_new[i].day && classes_new[i].Type.size() > 1)
         {
-            for (int j = 0; j < student_ucs_classes_v.size(); j++)
+            for (int j = 0; j < student_ucs_classes.size(); j++)
             {
-                if (classes_new[i].UcCode == student_ucs_classes_v[j].first && classes_new[i].ClassCode == student_ucs_classes_v[j].second)
+                if (classes_new[i].UcCode == student_ucs_classes[j].first && classes_new[i].ClassCode == student_ucs_classes[j].second)
                 {
                     if ((start < stof(classes_new[i].StartHour) && start + duration >= stof(classes_new[i].StartHour)) || (start > stof(classes_new[i].StartHour) && start < stof(classes_new[i].StartHour) + stof(classes_new[i].Duration)) || (start == stof(classes_new[i].StartHour)))
                     {

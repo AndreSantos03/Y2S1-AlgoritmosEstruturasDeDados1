@@ -21,9 +21,9 @@ using namespace std;
 class Student
 {
   private:
-    Creator &s;
+    Creator &student;
   public:
-    Student(Creator &s);
+    Student(Creator &student);
     void get_schedule(string studentcode);
 };
 
