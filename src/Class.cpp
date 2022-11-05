@@ -40,7 +40,7 @@ void Class::get_students(string classCode)
             bool a = true;
             for (int j = 0; j < p.size(); j++)
             {
-                if (student.classes_per_students_new.at(i).StudentCode == studensListing.at(j).second)
+                if (student.classes_per_students_new.at(i).studentCode == studensListing.at(j).second)
                 {
                     a = false;
                     break;
@@ -48,7 +48,7 @@ void Class::get_students(string classCode)
             }
             if (a)
             {
-                studensListing.push_back({student.classes_per_students_new.at(i).StudentName, student.classes_per_students_new.at(i).StudentCode});
+                studensListing.push_back({student.classes_per_students_new.at(i).studentName, student.classes_per_students_new.at(i).studentCode});
             }
         }
     }
@@ -91,7 +91,7 @@ void Class::get_schedule(string classCode)
     {
         if (tempClass.at(i).classCode == classCode)
         {
-            studensListing.push_back({tempClass.at(i).UcCode, tempClass.at(i).classCode, tempClass.at(i).WeekDay, tempClass.at(i).StartHour, tempClass.at(i).Duration, tempClass.at(i).Type});
+            studensListing.push_back({tempClass.at(i).ucCode, tempClass.at(i).classCode, tempClass.at(i).WeekDay, tempClass.at(i).StartHour, tempClass.at(i).Duration, tempClass.at(i).Type});
         }
     }
 

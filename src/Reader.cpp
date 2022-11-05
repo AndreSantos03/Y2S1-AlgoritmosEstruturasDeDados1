@@ -30,9 +30,9 @@ vector<classes_per_uc> Reader::read_classes_per_uc()
         string buf;
         classes_per_uc rrrr;
         getline(line, buf, ',');
-        rrrr.UcCode = buf;
+        rrrr.ucCode = buf;
         getline(line, buf, '\r');
-        rrrr.ClassCode= buf;
+        rrrr.classCode= buf;
         r_vector.push_back(rrrr);
     }
 
@@ -65,9 +65,9 @@ vector<classes> Reader::read_classes()
         string buf;
         classes rrrr;
         getline(line, buf, ',');
-        rrrr.ClassCode = buf;
+        rrrr.classCode = buf;
         getline(line, buf, ',');
-        rrrr.UcCode = buf;
+        rrrr.ucCode = buf;
         getline(line, buf, ',');
         rrrr.WeekDay = buf;
         getline(line, buf, ',');
@@ -109,13 +109,13 @@ vector<classes_per_students> Reader::read_students_class()
         string buf;
         classes_per_students rrrr;
         getline(line, buf, ',');
-        rrrr.StudentCode = buf;
+        rrrr.studentCode = buf;
         getline(line, buf, ',');
-        rrrr.StudentName = buf;
+        rrrr.studentName = buf;
         getline(line, buf, ',');
-        rrrr.UcCode = buf;
+        rrrr.ucCode = buf;
         getline(line, buf, '\r');
-        rrrr.ClassCode = buf;
+        rrrr.classCode = buf;
         r_vector.push_back(rrrr);
     }
 

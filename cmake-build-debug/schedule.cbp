@@ -5,132 +5,145 @@
 		<Option title="schedule"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\docs\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/andresantos/Desktop/Schedule/cmake-build-debug"/>
+				<Option working_dir="C:/Users/hmigu/Desktop/Schedule/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/andresantos/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/andresantos/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/andresantos/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/andresantos/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hmigu/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hmigu/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hmigu/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hmigu/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Doxygen">
+				<Option working_dir="C:/Users/hmigu/Desktop/Schedule/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hmigu/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 Doxygen"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hmigu/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hmigu/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hmigu/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="schedule">
-				<Option output="/home/andresantos/Desktop/Schedule/cmake-build-debug/schedule" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/andresantos/Desktop/Schedule/cmake-build-debug"/>
+				<Option output="C:/Users/hmigu/Desktop/Schedule/cmake-build-debug/schedule.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/hmigu/Desktop/Schedule/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/andresantos/Desktop/Schedule/src"/>
-					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/11.3.0/../../../../include/c++/11.3.0"/>
-					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/11.3.0/../../../../include/c++/11.3.0/x86_64-unknown-linux-gnu"/>
-					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/11.3.0/../../../../include/c++/11.3.0/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/11.3.0/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/11.3.0/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
+					<Add directory="C:/Users/hmigu/Desktop/Schedule/src"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/andresantos/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 schedule"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/andresantos/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/andresantos/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/andresantos/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hmigu/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 schedule"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hmigu/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hmigu/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hmigu/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="schedule/fast">
-				<Option output="/home/andresantos/Desktop/Schedule/cmake-build-debug/schedule" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/andresantos/Desktop/Schedule/cmake-build-debug"/>
+				<Option output="C:/Users/hmigu/Desktop/Schedule/cmake-build-debug/schedule.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/hmigu/Desktop/Schedule/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/andresantos/Desktop/Schedule/src"/>
-					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/11.3.0/../../../../include/c++/11.3.0"/>
-					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/11.3.0/../../../../include/c++/11.3.0/x86_64-unknown-linux-gnu"/>
-					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/11.3.0/../../../../include/c++/11.3.0/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/11.3.0/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-unknown-linux-gnu/11.3.0/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
+					<Add directory="C:/Users/hmigu/Desktop/Schedule/src"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/andresantos/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 schedule/fast"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/andresantos/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/andresantos/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/andresantos/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hmigu/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 schedule/fast"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hmigu/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hmigu/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hmigu/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/andresantos/Desktop/Schedule/cmake-build-debug"/>
+				<Option working_dir="C:/Users/hmigu/Desktop/Schedule/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/andresantos/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/andresantos/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/andresantos/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/andresantos/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hmigu/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hmigu/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hmigu/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hmigu/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/andresantos/Desktop/Schedule/cmake-build-debug"/>
+				<Option working_dir="C:/Users/hmigu/Desktop/Schedule/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/andresantos/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/andresantos/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/andresantos/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/andresantos/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hmigu/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hmigu/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hmigu/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/hmigu/Desktop/Schedule/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/andresantos/Desktop/Schedule/src/Class.cpp">
+		<Unit filename="C:/Users/hmigu/Desktop/Schedule/src/Class.cpp">
 			<Option target="schedule"/>
 		</Unit>
-		<Unit filename="/home/andresantos/Desktop/Schedule/src/Class.h">
+		<Unit filename="C:/Users/hmigu/Desktop/Schedule/src/Class.h">
 			<Option target="schedule"/>
 		</Unit>
-		<Unit filename="/home/andresantos/Desktop/Schedule/src/Creator.cpp">
+		<Unit filename="C:/Users/hmigu/Desktop/Schedule/src/Creator.cpp">
 			<Option target="schedule"/>
 		</Unit>
-		<Unit filename="/home/andresantos/Desktop/Schedule/src/Creator.h">
+		<Unit filename="C:/Users/hmigu/Desktop/Schedule/src/Creator.h">
 			<Option target="schedule"/>
 		</Unit>
-		<Unit filename="/home/andresantos/Desktop/Schedule/src/Reader.cpp">
+		<Unit filename="C:/Users/hmigu/Desktop/Schedule/src/Reader.cpp">
 			<Option target="schedule"/>
 		</Unit>
-		<Unit filename="/home/andresantos/Desktop/Schedule/src/Reader.h">
+		<Unit filename="C:/Users/hmigu/Desktop/Schedule/src/Reader.h">
 			<Option target="schedule"/>
 		</Unit>
-		<Unit filename="/home/andresantos/Desktop/Schedule/src/Sorter.cpp">
+		<Unit filename="C:/Users/hmigu/Desktop/Schedule/src/Sorter.cpp">
 			<Option target="schedule"/>
 		</Unit>
-		<Unit filename="/home/andresantos/Desktop/Schedule/src/Sorter.h">
+		<Unit filename="C:/Users/hmigu/Desktop/Schedule/src/Sorter.h">
 			<Option target="schedule"/>
 		</Unit>
-		<Unit filename="/home/andresantos/Desktop/Schedule/src/Student.cpp">
+		<Unit filename="C:/Users/hmigu/Desktop/Schedule/src/Student.cpp">
 			<Option target="schedule"/>
 		</Unit>
-		<Unit filename="/home/andresantos/Desktop/Schedule/src/Student.h">
+		<Unit filename="C:/Users/hmigu/Desktop/Schedule/src/Student.h">
 			<Option target="schedule"/>
 		</Unit>
-		<Unit filename="/home/andresantos/Desktop/Schedule/src/Uc.cpp">
+		<Unit filename="C:/Users/hmigu/Desktop/Schedule/src/Uc.cpp">
 			<Option target="schedule"/>
 		</Unit>
-		<Unit filename="/home/andresantos/Desktop/Schedule/src/Uc.h">
+		<Unit filename="C:/Users/hmigu/Desktop/Schedule/src/Uc.h">
 			<Option target="schedule"/>
 		</Unit>
-		<Unit filename="/home/andresantos/Desktop/Schedule/src/Writer.cpp">
+		<Unit filename="C:/Users/hmigu/Desktop/Schedule/src/Writer.cpp">
 			<Option target="schedule"/>
 		</Unit>
-		<Unit filename="/home/andresantos/Desktop/Schedule/src/Writer.h">
+		<Unit filename="C:/Users/hmigu/Desktop/Schedule/src/Writer.h">
 			<Option target="schedule"/>
 		</Unit>
-		<Unit filename="/home/andresantos/Desktop/Schedule/src/main.cpp">
+		<Unit filename="C:/Users/hmigu/Desktop/Schedule/src/main.cpp">
 			<Option target="schedule"/>
 		</Unit>
-		<Unit filename="/home/andresantos/Desktop/Schedule/CMakeLists.txt">
+		<Unit filename="C:/Users/hmigu/Desktop/Schedule/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="C:/Users/hmigu/Desktop/Schedule/docs/Doxyfile">
+			<Option virtualFolder="CMake Files\docs\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

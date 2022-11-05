@@ -24,7 +24,7 @@ using namespace std;
 
 queue<request> process_requests(Creator &student, queue<request> queue)
 {
-    queue<request> queue_fail;
+    ::queue<request> queue_fail;
     while (!queue.empty())
     {
         if (queue.front().type == "remove")
@@ -36,35 +36,35 @@ queue<request> process_requests(Creator &student, queue<request> queue)
             }
             else
             {
-                cout << "Unable to remove student " << queue.front().student << " from UC " << queue.front().uccode << " in Class " << queue.front().classcode << endl;
+                cout << "Unable to remove student " << queue.front().student << " from UC " << queue.front().ucCode << " in Class " << queue.front().classCode << endl;
                 queue_fail.push(queue.front());
                 queue.pop();
             }
         }
         else if (queue.front().type == "add")
         {
-            if (student.add_to(queue.front().student, queue.front().uccode, queue.front().classcode))
+            if (student.add_to(queue.front().student, queue.front().ucCode, queue.front().classCode))
             {
-                cout  << "Added student " << queue.front().student << " to UC " << queue.front().uccode << " in to Class " << queue.front().classcode << endl;
+                cout  << "Added student " << queue.front().student << " to UC " << queue.front().ucCode << " in to Class " << queue.front().classCode << endl;
                 queue.pop();
             }
             else
             {
-                cout << "Unable to add student " << queue.front().student << " to UC " << queue.front().uccode << " into Class " << queue.front().classcode << endl;
+                cout << "Unable to add student " << queue.front().student << " to UC " << queue.front().ucCode << " into Class " << queue.front().classCode << endl;
                 queue_fail.push(q.front());
                 queue.pop();
             }
         }
         else if (queue.front().type == "change")
         {
-            if (student.change_class(queue.front().student, queue.front().uccode, queue.front().classcode, queue.front().newclasscode))
+            if (student.change_class(queue.front().student, queue.front().ucCode, queue.front().classCode, queue.front().newClasscode))
             {
-                cout  << "Changed student " << queue.front().student << " in UC " << queue.front().uccode << " to Class " << queue.front().newclasscode << endl;
+                cout  << "Changed student " << queue.front().student << " in UC " << queue.front().ucCode << " to Class " << queue.front().newClasscode << endl;
                 queue.pop();
             }
             else
             {
-                cout << "Failed to change student " << queue.front().student << " in UC " << queue.front().uccode << " to Class " << queue.front().newclasscode << endl;
+                cout << "Failed to change student " << queue.front().student << " in UC " << queue.front().ucCode << " to Class " << queue.front().newClasscode << endl;
                 queue_fail.push(queue.front());
                 queue.pop();
             }
@@ -96,7 +96,7 @@ queue<request> process_requests(Creator &student, queue<request> queue)
 int main(int argc, char **argv)
 {
     Creator student;
-    student.initialize();
+    student.initializion();
     string reply;
     queue<request> queue;
     Student student(student);
@@ -211,9 +211,9 @@ int main(int argc, char **argv)
                 map<string, string> c;
                 for (int i = 0; i < student.classes_per_students_new.size(); i++)
                 {
-                    if (student.classes_per_students_new[i].StudentCode == studentcode || student.classes_per_students_new[i].StudentName == studentcode)
+                    if (student.classes_per_students_new[i].studentCode == studentcode || student.classes_per_students_new[i].studentName == studentcode)
                     {
-                        c[student.classes_per_students_new[i].UcCode] = student.classes_per_students_new[i].ClassCode;
+                        c[student.classes_per_students_new[i].ucCode] = student.classes_per_students_new[i].classCode;
                     }
                 }
                 for (pair<string, string> cc : c)
@@ -244,7 +244,7 @@ int main(int argc, char **argv)
                 {
                     if (student.classes_per_uc_new[i].UcCode == r && student.is_balanced(student.classes_per_uc_new[i].UcCode, student.classes_per_uc_new[i].ClassCode))
                     {
-                        cout << student.classes_per_uc_new[i].ClassCode << endl;
+                        cout << student.classes_per_uc_new[i].classCode << endl;
                     }
                 }
                 string destClass;
@@ -270,7 +270,7 @@ int main(int argc, char **argv)
                 {
                     if (student.classes_per_students_new[i].StudentCode == code || student.classes_per_students_new[i].StudentName == code)
                     {
-                        c[student.classes_per_students_new[i].UcCode] = student.classes_per_students_new[i].ClassCode;
+                        c[student.classes_per_students_new[i].ucCode] = student.classes_per_students_new[i].classCode;
                     }
                 }
                 for (pair<string, string> cc : c)
@@ -288,9 +288,9 @@ int main(int argc, char **argv)
                 cout << "Enter Original Classes:" << endl;
                 for (int i = 0; i < student.classes_per_uc_new.size(); i++)
                 {
-                    if (student.classes_per_uc_new[i].UcCode == uccode && student.is_balanced(student.classes_per_uc_new[i].UcCode, student.classes_per_uc_new[i].ClassCode))
+                    if (student.classes_per_uc_new[i].UcCode == uccode && student.is_balanced(student.classes_per_uc_new[i].UcCode, student.classes_per_uc_new[i].classCode))
                     {
-                        cout << student.classes_per_uc_new[i].ClassCode << endl;
+                        cout << student.classes_per_uc_new[i].classCode << endl;
                     }
                 }
                 string newClass;
@@ -321,11 +321,11 @@ int main(int argc, char **argv)
                     cout  << "There are no queued requests!" << endl;
                     continue;
                 }
-                queue<request> qCopy = q;
+                ::queue<request> qCopy = q;
                 cout  << "There are" << qCopy.size() << " queued requests:" << endl;
                 while (!qCopy.empty())
                 {
-                    cout << qCopy.front().type << " " << qCopy.front().student << " " << qCopy.front().uccode << " " << qCopy.front().classcode << endl;
+                    cout << qCopy.front().type << " " << qCopy.front().student << " " << qCopy.front().ucCode << " " << qCopy.front().classCode << endl;
                     qCopy.pop();
                 }
             }
