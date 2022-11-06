@@ -190,7 +190,7 @@ int main(int argc, char **argv)
                     cout << "Enter Name / Code (ex: Jose Leopoldo / 201964162):" << endl;
                     string studentcode;
                     cin >> studentcode;
-                    cClass.get_schedule(studentcode);
+                    stude.get_schedule(studentcode);
                 }
                 else
                 {
