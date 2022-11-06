@@ -39,7 +39,7 @@ void Student::get_schedule(string studentCode)
         cout << "The Class with the code " << studentCode << " has the following schedule:" << endl;
         if (sched.classes_new.at(i).ClassCode == temp_map[sched.classes_new.at(i).UcCode])
         {
-            cout << "----" << sched.at(i).WeekDay << "  |  "<<  sched.at(i).StartHour << "  |  " << sched.at(i).Duration << " hour duration  |  " << sched.at(i).Type << "----" << endl;
+            cout << "----" << sched.classes_new.at(i).WeekDay << "  |  "<<  sched.classes_new.at(i).StartHour << "  |  " << sched.classes_new.at(i).Duration << " hour duration  |  " << sched.classes_new.at(i).Type << "----" << endl;
         }
     }
 }
