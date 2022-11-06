@@ -16,7 +16,7 @@
  * @param new_student referência do creator
  */
 
-Student::Student(Creator &new_student) : s(new_student)
+Student::Student(Creator &new_student) : student(new_student)
 {}
 
 /**
@@ -33,9 +33,9 @@ void Student::get_schedule(string studentCode)
     cout << RESET << "---\nSchedule from Student " << studentCode << ":" << endl << endl;
     vector<vector<string>> r_vector;
     map<string, string> temp_map;
-    for (int i = 0; i < s.classes_per_students_new.size(); i++)
+    for (int i = 0; i < student.classes_per_students_new.size(); i++)
     {
-        if (student.classes_per_students_new.at(i).studentCode == studentCode || student.classes_per_students_new.at(i).StudentName == studentCode)
+        if (student.classes_per_students_new.at(i).StudentCode == studentCode || student.classes_per_students_new.at(i).StudentName == studentCode)
         {
             temp_map[student.classes_per_students_new.at(i).UcCode] = student.classes_per_students_new.at(i).ClassCode;
         }
@@ -48,7 +48,7 @@ void Student::get_schedule(string studentCode)
         }
     }
 
-    vector<vector<string>> l = s.schedule(p);
+    vector<vector<string>> l = student.scheduleMaker(r_vector);
 
     vector<string> Monday = l.at(0);
     vector<string> Tuesday = l.at(1);

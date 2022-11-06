@@ -41,16 +41,16 @@ queue<request> process_requests(Creator &student, queue<request> queue)
                 queue.pop();
             }
         }
-        else if (queue.front().type == "add")
+        else if (queue.front().Type == "add")
         {
-            if (student.add_to(queue.front().student, queue.front().ucCode, queue.front().classCode))
+            if (student.add_to(queue.front().Student, queue.front().UcCode, queue.front().ClassCode))
             {
-                cout  << "Added student " << queue.front().student << " to UC " << queue.front().ucCode << " in to Class " << queue.front().classCode << endl;
+                cout  << "Added student " << queue.front().Student << " to UC " << queue.front().UcCode << " in to Class " << queue.front().classCode << endl;
                 queue.pop();
             }
             else
             {
-                cout << "Unable to add student " << queue.front().student << " to UC " << queue.front().ucCode << " into Class " << queue.front().classCode << endl;
+                cout << "Unable to add student " << queue.front().Student << " to UC " << queue.front().UcCode << " into Class " << queue.front().classCode << endl;
                 queue_fail.push(q.front());
                 queue.pop();
             }
@@ -268,7 +268,7 @@ int main(int argc, char **argv)
                 map<string, string> c;
                 for (int i = 0; i < student.classes_per_students_new.size(); i++)
                 {
-                    if (student.classes_per_students_new[i].StudentCode == code || student.classes_per_students_new[i].StudentName == code)
+                    if (student.classes_per_students_new[i].StudentCode == studentCode || student.classes_per_students_new[i].StudentName == studentCode)
                     {
                         c[student.classes_per_students_new[i].ucCode] = student.classes_per_students_new[i].classCode;
                     }

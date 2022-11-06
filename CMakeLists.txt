@@ -20,7 +20,6 @@ src/Student.cpp
 src/Student.h
 src/Creator.cpp
 src/Creator.h
-<<<<<<< Updated upstream
 )
 
 # Doxygen Build
@@ -42,11 +41,10 @@ if(DOXYGEN_FOUND)
 else(DOXYGEN_FOUND)
     message("Doxygen needs to be installed to generate the documentation.")
 endif(DOXYGEN_FOUND)
-=======
-        )
+
+        
 
 
->>>>>>> Stashed changes
 
 add_executable(${PROJECT_NAME} ${SOURCE})
 

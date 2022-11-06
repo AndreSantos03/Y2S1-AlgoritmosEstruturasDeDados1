@@ -1,4 +1,0 @@
-/Users/pedro/schedule/b/CMakeFiles/Doxygen.dir
-/Users/pedro/schedule/b/CMakeFiles/schedule.dir
-/Users/pedro/schedule/b/CMakeFiles/edit_cache.dir
-/Users/pedro/schedule/b/CMakeFiles/rebuild_cache.dir

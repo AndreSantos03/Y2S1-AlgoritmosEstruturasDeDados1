@@ -17,8 +17,8 @@ using namespace std;
 
 struct classes
 {
-    string classCode;
-    string ucCode;
+    string ClassCode;
+    string UcCode;
     string WeekDay;
     string StartHour;
     string Duration;
@@ -27,25 +27,25 @@ struct classes
 
 struct classes_per_uc
 {
-    string ucCode;
-    string classCode;
+    string UcCode;
+    string ClassCode;
 };
 
 struct classes_per_students
 {
-    string ucCode;
-    string classCode;
-    string studentName;
-    string studentCode;
+    string UcCode;
+    string ClassCode;
+    string StudentName;
+    string StudentCode;
 };
 
 struct request
 {
-    string type;
-    string classCode;
-    string newClasscode;
-    string student;
-    string ucCode;
+    string Type;
+    string ClassCode;
+    string NewClasscode;
+    string Student;
+    string UcCode;
 };
 
 #endif
