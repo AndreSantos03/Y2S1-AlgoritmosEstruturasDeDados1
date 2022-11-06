@@ -34,10 +34,10 @@ void Uc::get_students(string ucCode)
     vector<pair<string, string>> studentVector;
     for (int i = 0; i < student.classes_per_students_new.size(); i++)
     {
-        if (student.classes_per_students_new.at(i).ucCode == ucCode)
+        if (student.classes_per_students_new.at(i).UcCode == ucCode)
         {
             bool a = true;
-            for (int j = 0; j < p.size(); j++)
+            for (int j = 0; j < studentVector.size(); j++)
             {
                 if (student.classes_per_students_new.at(i).StudentCode == studentVector.at(j).second)
                 {
@@ -66,7 +66,7 @@ void Uc::get_students(string ucCode)
         return;
     }
 
-    for (int i = 0; i < p.size(); i++)
+    for (int i = 0; i < studentVector.size(); i++)
     {
         cout << studentVector.at(i).first << "  " << studentVector.at(i).second << endl;
     }
@@ -84,7 +84,7 @@ void Uc::get_classes(string ucCode)
     cout << "The classes with the UC " << ucCode << " are as followed: " << endl << endl;
     for (int i = 0; i < student.classes_per_uc_new.size(); i++)
     {
-        if (student.classes_per_uc_new.at(i).ucCode == ucCode)
+        if (student.classes_per_uc_new.at(i).UcCode == ucCode)
         {
             cout << student.classes_per_uc_new.at(i).ClassCode << endl;
         }

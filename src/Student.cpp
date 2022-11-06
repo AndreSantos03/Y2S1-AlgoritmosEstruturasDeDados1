@@ -12,7 +12,7 @@
  * @param new_student referência do creator
  */
 
-Student::Student(Creator &new_student) : student(new_student)
+Student::Student(Creator &new_student) : sched(new_student)
 {}
 
 /**
@@ -27,19 +27,19 @@ Student::Student(Creator &new_student) : student(new_student)
 void Student::get_schedule(string studentCode)
 {
     map<string, string> temp_map;
-    for (int i = 0; i < student.classes_per_students_new.size(); i++)
+    for (int i = 0; i < sched.classes_per_students_new.size(); i++)
     {
-        if (student.classes_per_students_new.at(i).StudentCode == studentCode || student.classes_per_students_new.at(i).StudentName == studentCode)
+        if (sched.classes_per_students_new.at(i).StudentCode == studentCode || sched.classes_per_students_new.at(i).StudentName == studentCode)
         {
-            temp_map[student.classes_per_students_new.at(i).UcCode] = student.classes_per_students_new.at(i).ClassCode;
+            temp_map[sched.classes_per_students_new.at(i).UcCode] = sched.classes_per_students_new.at(i).ClassCode;
         }
     }
-    for (int i = 0; i < student.classes_new.size(); i++)
+    for (int i = 0; i < sched.classes_new.size(); i++)
     {
-        cout << "The Class with the code " << classCode << " has the following schedule:" << endl;
-        if (student.classes_new.at(i).ClassCode == temp_map[student.classes_new.at(i).UcCode])
+        cout << "The Class with the code " << studentCode << " has the following schedule:" << endl;
+        if (sched.classes_new.at(i).ClassCode == temp_map[sched.classes_new.at(i).UcCode])
         {
-            cout << "----" << tempClass.at(i).WeekDay << "  |  "<<  tempClass.at(i).StartHour << "  |  " << tempClass.at(i).Duration << " hour duration  |  " << tempClass.at(i).Type << "----" << endl
+            cout << "----" << sched.at(i).WeekDay << "  |  "<<  sched.at(i).StartHour << "  |  " << sched.at(i).Duration << " hour duration  |  " << sched.at(i).Type << "----" << endl;
         }
     }
 }

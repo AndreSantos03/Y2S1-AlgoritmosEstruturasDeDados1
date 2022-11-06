@@ -22,49 +22,49 @@ using namespace std;
  * @return queue<request>
  */
 
-queue<request> process_requests(Creator &student, queue<request> queue)
+queue<request> process_requests(Creator &sched, queue<request> queue)
 {
     ::queue<request> queue_fail;
     while (!queue.empty())
     {
-        if (queue.front().type == "remove")
+        if (queue.front().Type == "remove")
         {
-            if (student.remove_class_uc(queue.front().student, queue.front().uccode, queue.front().classcode))
+            if (sched.remove_class_from_uc(queue.front().Student, queue.front().UcCode, queue.front().ClassCode))
             {
-                cout  << "Removed student " << q.front().student << " from UC " << q.front().uccode << " in Class " << queue.front().classcode << endl;
+                cout  << "Removed student " << queue.front().Student << " from UC " << queue.front().UcCode << " in Class " << queue.front().ClassCode << endl;
                 queue.pop();
             }
             else
             {
-                cout << "Unable to remove student " << queue.front().student << " from UC " << queue.front().ucCode << " in Class " << queue.front().classCode << endl;
+                cout << "Unable to remove student " << queue.front().Student << " from UC " << queue.front().UcCode << " in Class " << queue.front().ClassCode << endl;
                 queue_fail.push(queue.front());
                 queue.pop();
             }
         }
         else if (queue.front().Type == "add")
         {
-            if (student.add_to(queue.front().Student, queue.front().UcCode, queue.front().ClassCode))
+            if (sched.add_to(queue.front().Student, queue.front().UcCode, queue.front().ClassCode))
             {
-                cout  << "Added student " << queue.front().Student << " to UC " << queue.front().UcCode << " in to Class " << queue.front().classCode << endl;
+                cout  << "Added student " << queue.front().Student << " to UC " << queue.front().UcCode << " in to Class " << queue.front().ClassCode << endl;
                 queue.pop();
             }
             else
             {
-                cout << "Unable to add student " << queue.front().Student << " to UC " << queue.front().UcCode << " into Class " << queue.front().classCode << endl;
-                queue_fail.push(q.front());
+                cout << "Unable to add student " << queue.front().Student << " to UC " << queue.front().UcCode << " into Class " << queue.front().ClassCode << endl;
+                queue_fail.push(queue.front());
                 queue.pop();
             }
         }
-        else if (queue.front().type == "change")
+        else if (queue.front().Type == "change")
         {
-            if (student.change_class(queue.front().student, queue.front().ucCode, queue.front().classCode, queue.front().newClasscode))
+            if (sched.class_changer(queue.front().Student, queue.front().UcCode, queue.front().ClassCode, queue.front().NewClasscode))
             {
-                cout  << "Changed student " << queue.front().student << " in UC " << queue.front().ucCode << " to Class " << queue.front().newClasscode << endl;
+                cout  << "Changed student " << queue.front().Student << " in UC " << queue.front().UcCode << " to Class " << queue.front().NewClasscode << endl;
                 queue.pop();
             }
             else
             {
-                cout << "Failed to change student " << queue.front().student << " in UC " << queue.front().ucCode << " to Class " << queue.front().newClasscode << endl;
+                cout << "Failed to change student " << queue.front().Student << " in UC " << queue.front().UcCode << " to Class " << queue.front().NewClasscode << endl;
                 queue_fail.push(queue.front());
                 queue.pop();
             }
@@ -95,14 +95,14 @@ queue<request> process_requests(Creator &student, queue<request> queue)
 
 int main(int argc, char **argv)
 {
-    Creator student;
-    student.initializion();
+    Creator sched;
+    sched.initializion();
     string reply;
     queue<request> queue;
-    Student student(student);
-    Uc uc(student);
-    Class class_(student);
-    Writer write(student);
+    Student stude(sched);
+    Uc uc(sched);
+    Class cClass(sched);
+    Writer write(sched);
     while (true)
     {
         cout << "1: Viewer\t2: Request\t3: Get Requests to be Processed\nq: Quit Application"<< endl;
@@ -118,7 +118,7 @@ int main(int argc, char **argv)
                 cout << "Enter UC Code (ex:L.EIC005):" << endl << endl;
                 string code;
                 cin >> code;
-                while (!student.is_valid_uc(code))
+                while (!sched.is_valid_uc(code))
                 {
                     cout << "Invalid UC Code!" << endl;
                     cin >> code;
@@ -134,7 +134,7 @@ int main(int argc, char **argv)
                     cout << "Enter UC Code (ex:L.EIC005):" << endl;
                     string code;
                     cin >> code;
-                    while (!student.is_valid_uc(code))
+                    while (!sched.is_valid_uc(code))
                     {
                         cout << "Invalid UC Code!" << endl;
                         cin >> code;
@@ -146,12 +146,12 @@ int main(int argc, char **argv)
                     cout << "Enter Class Code (ex:2LEIC07):" << endl;
                     string code;
                     cin >> code;
-                    while (!student.is_valid_class(code))
+                    while (!sched.is_valid_class(code))
                     {
                         cout << "Invalid Class Code!" << endl;
                         cin >> code;
                     }
-                    class_.get_students(code);
+                    cClass.get_students(code);
                 }
                 else
                 {
@@ -168,19 +168,19 @@ int main(int argc, char **argv)
                     cout << "Enter Class Code (ex:7LEIC07):" << endl;
                     string code;
                     cin >> code;
-                    while (!student.is_valid_class(code))
+                    while (!sched.is_valid_class(code))
                     {
                         cout << "Invalid Class Code!" << endl;
                         cin >> code;
                     }
-                    class_.get_schedule(code,);
+                    cClass.get_schedule(code);
                 }
                 else if (reply == "2")
                 {
                     cout << "Enter Name / Code (ex: Jonas / 202000000):" << endl;
                     string studentcode;
                     cin >> studentcode;
-                    student.get_schedule(studentcode);
+                    cClass.get_schedule(studentcode);
                 }
                 else
                 {
@@ -190,7 +190,7 @@ int main(int argc, char **argv)
             }
             else if (reply == "4")
             {
-                student.ocupation();
+                sched.ocupation();
             }
             else
             {
@@ -209,11 +209,11 @@ int main(int argc, char **argv)
                 cin >> studentcode;
                 cout << "UCs:" << endl;
                 map<string, string> c;
-                for (int i = 0; i < student.classes_per_students_new.size(); i++)
+                for (int i = 0; i < sched.classes_per_students_new.size(); i++)
                 {
-                    if (student.classes_per_students_new[i].studentCode == studentcode || student.classes_per_students_new[i].studentName == studentcode)
+                    if (sched.classes_per_students_new[i].StudentCode == studentcode || sched.classes_per_students_new[i].StudentName == studentcode)
                     {
-                        c[student.classes_per_students_new[i].ucCode] = student.classes_per_students_new[i].classCode;
+                        c[sched.classes_per_students_new[i].UcCode] = sched.classes_per_students_new[i].ClassCode;
                     }
                 }
                 for (pair<string, string> cc : c)
@@ -234,23 +234,23 @@ int main(int argc, char **argv)
                 cin >> studentcode;
                 cout << "Enter Destination UC Code (ex: L.EIC007):" << endl << endl;
                 cin >> reply;
-                if (!student.is_valid_uc(r))
+                if (!sched.is_valid_uc(reply))
                 {
                     cout << "Invalid Uc Code!" << endl;
                     continue;
                 }
                 cout << "Enter Original Classes:" << endl;
-                for (int i = 0; i < student.classes_per_uc_new.size(); i++)
+                for (int i = 0; i < sched.classes_per_uc_new.size(); i++)
                 {
-                    if (student.classes_per_uc_new[i].UcCode == r && student.is_balanced(student.classes_per_uc_new[i].UcCode, student.classes_per_uc_new[i].ClassCode))
+                    if (sched.classes_per_uc_new[i].UcCode == reply && sched.is_balanced(sched.classes_per_uc_new[i].UcCode, sched.classes_per_uc_new[i].ClassCode))
                     {
-                        cout << student.classes_per_uc_new[i].classCode << endl;
+                        cout << sched.classes_per_uc_new[i].ClassCode << endl;
                     }
                 }
                 string destClass;
                 cout << "Enter Destination Class:" << endl << endl;
                 cin >> destClass;
-                if (!student.is_valid_uc_class(reply, destClass))
+                if (!sched.is_valid_uc_class(reply, destClass))
                 {
                     cout << "Invalid UC and/or Class combination!" << endl;
                     continue;
@@ -266,11 +266,11 @@ int main(int argc, char **argv)
                 cin >> studentCode;
                 cout << "Enter UCs:" << endl;
                 map<string, string> c;
-                for (int i = 0; i < student.classes_per_students_new.size(); i++)
+                for (int i = 0; i < sched.classes_per_students_new.size(); i++)
                 {
-                    if (student.classes_per_students_new[i].StudentCode == studentCode || student.classes_per_students_new[i].StudentName == studentCode)
+                    if (sched.classes_per_students_new[i].StudentCode == studentCode || sched.classes_per_students_new[i].StudentName == studentCode)
                     {
-                        c[student.classes_per_students_new[i].ucCode] = student.classes_per_students_new[i].classCode;
+                        c[sched.classes_per_students_new[i].UcCode] = sched.classes_per_students_new[i].ClassCode;
                     }
                 }
                 for (pair<string, string> cc : c)
@@ -280,28 +280,28 @@ int main(int argc, char **argv)
                 cout << "Enter Class of UC to be Changed:" << endl;
                 string uccode;
                 cin >> uccode;
-                if (!student.is_valid_uc(uccode))
+                if (!sched.is_valid_uc(uccode))
                 {
                     cout << "Invalid Uc Code!" << endl;
                     continue;
                 }
                 cout << "Enter Original Classes:" << endl;
-                for (int i = 0; i < student.classes_per_uc_new.size(); i++)
+                for (int i = 0; i < sched.classes_per_uc_new.size(); i++)
                 {
-                    if (student.classes_per_uc_new[i].UcCode == uccode && student.is_balanced(student.classes_per_uc_new[i].UcCode, student.classes_per_uc_new[i].classCode))
+                    if (sched.classes_per_uc_new[i].UcCode == uccode && sched.is_balanced(sched.classes_per_uc_new[i].UcCode, sched.classes_per_uc_new[i].ClassCode))
                     {
-                        cout << student.classes_per_uc_new[i].classCode << endl;
+                        cout << sched.classes_per_uc_new[i].ClassCode << endl;
                     }
                 }
                 string newClass;
-                cout << "Enter Destination Class(ex: 7LEIC07):"  endl;
+                cout << "Enter Destination Class(ex: 7LEIC07):" << endl;
                 cin >> newClass;
-                if (!student.is_valid_uc_class(uccode, newClass))
+                if (!sched.is_valid_uc_class(uccode, newClass))
                 {
                     cout  << "Invalid UC/Class Combination!" <<  endl;
                     continue;
                 }
-                queue.push({"change", code, uccode, c[uccode], newClass});
+                queue.push({"change", studentCode, uccode, c[uccode], newClass});
                 cout  << "Request has been to queue!" << endl;
             }
             else
@@ -321,18 +321,18 @@ int main(int argc, char **argv)
                     cout  << "There are no queued requests!" << endl;
                     continue;
                 }
-                ::queue<request> qCopy = q;
+                ::queue<request> qCopy = queue;
                 cout  << "There are" << qCopy.size() << " queued requests:" << endl;
                 while (!qCopy.empty())
                 {
-                    cout << qCopy.front().type << " " << qCopy.front().student << " " << qCopy.front().ucCode << " " << qCopy.front().classCode << endl;
+                    cout << qCopy.front().Type << " " << qCopy.front().Student << " " << qCopy.front().UcCode << " " << qCopy.front().ClassCode << endl;
                     qCopy.pop();
                 }
             }
             else if (reply == "2")
             {
-                process_requests(student, queue);
-                std::queue<request>().swap(q);
+                process_requests(sched, queue);
+                std::queue<request>().swap(queue);
             }
             else
             {
@@ -340,7 +340,7 @@ int main(int argc, char **argv)
                 continue;
             }
         }
-        else if (r == "q") {
+        else if (reply == "q") {
             return 0;
         }
         else

@@ -37,7 +37,7 @@ bool Writer::write()
     fileout << "StudentCode,StudentName,UcCode,ClassCode\r\n";
     for (int i = 0; i < sched.classes_per_students_new.size(); i++)
     {
-        fileout << sched.classes_per_students_new[i].StudentCode << "," << sched.classes_per_students_new[i].StudentName << "," << sched.classes_per_students_new[i].UcCode << "," << s.classes_per_students_new[i].ClassCode << "\r\n";
+        fileout << sched.classes_per_students_new[i].StudentCode << "," << sched.classes_per_students_new[i].StudentName << "," << sched.classes_per_students_new[i].UcCode << "," << sched.classes_per_students_new[i].ClassCode << "\r\n";
     }
     fileout.close();
     remove("../students_classes.csv");

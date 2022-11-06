@@ -102,7 +102,7 @@ void Creator::ocupation()
         if (ucAnswer == "all" || ucAnswer == ocup.first)
         {
             cout << ocup.first << endl;
-            for (int j = 0; j < o.second.size(); j++)
+            for (int j = 0; j < ocup.second.size(); j++)
             {
                 cout << ocup.second[j].first << " - " << ocup.second[j].second << endl;
             }
@@ -189,7 +189,7 @@ bool Creator::add_to(string studentcode, string uccode, string classcode)
 {
     if (!is_valid_uc_class(uccode, classcode))
     {
-        cout < << "Invalid UC and Class combination!";
+        cout << "Invalid UC and Class combination!" << endl;
         return false;
     }
     if (!is_balanced(uccode, classcode))
@@ -199,7 +199,7 @@ bool Creator::add_to(string studentcode, string uccode, string classcode)
     }
     if (!is_valid_schedule_change(studentcode, uccode, "", classcode))
     {
-        cout << "Overlapping classes!";
+        cout << "Overlapping classes!" << endl;
         return false;
     }
 
@@ -395,7 +395,7 @@ bool Creator::is_valid_schedule_change(string studentcode, string uc, string old
     {
         if (classes_new[i].UcCode == uc && classes_new[i].ClassCode == newclass && classes_new[i].Type.size() > 1)
         {
-            day = classes_new[i].day;
+            day = classes_new[i].WeekDay;
             start = stof(classes_new[i].StartHour);
             duration = stof(classes_new[i].Duration);
             break;
@@ -403,7 +403,7 @@ bool Creator::is_valid_schedule_change(string studentcode, string uc, string old
     }
     for (int i = 0; i < classes_new.size(); i++)
     {
-        if (day == classes_new[i].day && classes_new[i].Type.size() > 1)
+        if (day == classes_new[i].WeekDay && classes_new[i].Type.size() > 1)
         {
             for (int j = 0; j < student_ucs_classes.size(); j++)
             {

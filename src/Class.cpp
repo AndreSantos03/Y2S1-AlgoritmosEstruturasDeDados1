@@ -14,7 +14,7 @@ using namespace std;
  * @param new_student referência do creator
  */
 
-Class::Class(Creator &new_student) : s(new_student)
+Class::Class(Creator &new_student) : sched(new_student)
 {
 }
 
@@ -32,14 +32,14 @@ void Class::get_students(string classCode)
     cin >> typeOrder;
     cout << "All Students that have the Class " << classCode << ": " << endl;
     vector<pair<string, string>> studensListing;
-    for (int i = 0; i < s.classes_per_students_new.size(); i++)
+    for (int i = 0; i < sched.classes_per_students_new.size(); i++)
     {
-        if (student.classes_per_students_new.at(i).classCode == classCode)
+        if (sched.classes_per_students_new.at(i).ClassCode == classCode)
         {
             bool a = true;
-            for (int j = 0; j < p.size(); j++)
+            for (int j = 0; j < studensListing.size(); j++)
             {
-                if (student.classes_per_students_new.at(i).studentCode == studensListing.at(j).second)
+                if (sched.classes_per_students_new.at(i).StudentCode == studensListing.at(j).second)
                 {
                     a = false;
                     break;
@@ -47,18 +47,18 @@ void Class::get_students(string classCode)
             }
             if (a)
             {
-                studensListing.push_back({student.classes_per_students_new.at(i).studentName, student.classes_per_students_new.at(i).studentCode});
+                studensListing.push_back({sched.classes_per_students_new.at(i).StudentName, sched.classes_per_students_new.at(i).StudentCode});
             }
         }
     }
 
     if (typeOrder == "1")
     {
-        sort(studensListing.begin(), p.end(), sortAlphabetically);
+        sort(studensListing.begin(), studensListing.end(), sortAlphabetically);
     }
     else if (typeOrder == "2")
     {
-        sort(studensListingp.begin(), p.end(), sortNumber);
+        sort(studensListing.begin(),studensListing.end(), sortNumber);
     }
     else
     {
@@ -83,15 +83,15 @@ void Class::get_students(string classCode)
 
 void Class::get_schedule(string classCode)
 {
-    vector<classes> tempClass = student.classes_new;
-    vector<vector<string>> p;
+    vector<classes> tempClass = sched.classes_new;
+    vector<vector<string>> studensListing;
     cout << "The Class with the code " << classCode << " has the following schedule:" << endl;
     for (int i = 0; i < tempClass.size(); i++)
     {
-        if (tempClass.at(i).classCode == classCode)
+        if (tempClass.at(i).ClassCode == classCode)
         {
-            cout << "----" << tempClass.at(i).WeekDay << "  |  "<<  tempClass.at(i).StartHour << "  |  " << tempClass.at(i).Duration << " hour duration  |  " << tempClass.at(i).Type << "----" << endl
-            studensListing.push_back({tempClass.at(i).ucCode, tempClass.at(i).classCode, tempClass.at(i).WeekDay, tempClass.at(i).StartHour, tempClass.at(i).Duration, tempClass.at(i).Type});
+            cout << "----" << tempClass.at(i).WeekDay << "  |  "<<  tempClass.at(i).StartHour << "  |  " << tempClass.at(i).Duration << " hour duration  |  " << tempClass.at(i).Type << "----" << endl;
+            studensListing.push_back({tempClass.at(i).UcCode, tempClass.at(i).ClassCode, tempClass.at(i).WeekDay, tempClass.at(i).StartHour, tempClass.at(i).Duration, tempClass.at(i).Type});
         }
     }
 
