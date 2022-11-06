@@ -39,10 +39,12 @@ void Student::get_schedule(string studentCode)
     {
         string hours;
         if(sched.classes_new.at(i).StartHour.find('.')!=string::npos){
-            hours = sched.classes_new.at(i).StartHour.substr(0,sched.classes_new.at(i).StartHour.find('.')).append("::30 start");
+            hours = sched.classes_new.at(i).StartHour.substr(0,sched.classes_new.at(i).StartHour.find('.'));
+            hours.append("::30 start");
         }
         else{
-            hours=sched.classes_new.at(i).StartHour.append("::00 start");
+            hours=sched.classes_new.at(i).StartHour;
+            hours.append("::00 start");
         }
         if (sched.classes_new.at(i).ClassCode == temp_map[sched.classes_new.at(i).UcCode])
         {
