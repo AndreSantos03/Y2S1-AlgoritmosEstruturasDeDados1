@@ -18,9 +18,9 @@ using namespace std;
 class Class
 {
   private:
-    Creator &student;
+    Creator &sched;
   public:
-    Class(Creator &student);
+    Class(Creator &sched);
     void get_students(string classCode);
     void get_schedule(string classDode);
 };

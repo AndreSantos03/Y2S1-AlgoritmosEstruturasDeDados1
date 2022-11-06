@@ -173,7 +173,7 @@ int main(int argc, char **argv)
                         cout << "Invalid Class Code!" << endl;
                         cin >> code;
                     }
-                    class_.get_schedule(code);
+                    class_.get_schedule(code,);
                 }
                 else if (reply == "2")
                 {

@@ -21,9 +21,9 @@ using namespace std;
 class Writer
 {
   private:
-    Creator &student;
+    Creator &sched;
   public:
-    Writer(Creator &student);
+    Writer(Creator &sched);
     bool write();
 };
 
