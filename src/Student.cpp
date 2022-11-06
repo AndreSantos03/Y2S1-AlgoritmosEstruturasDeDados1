@@ -46,7 +46,7 @@ void Student::get_schedule(string studentCode)
         }
         if (sched.classes_new.at(i).ClassCode == temp_map[sched.classes_new.at(i).UcCode])
         {
-            cout << "\t" << sched.classes_new.at(i).WeekDay << "\t|\t"<<  hours << "\t|\t" << sched.classes_new.at(i).Duration << " hour duration\t|\t" << sched.classes_new.at(i).Type << endl;
+            cout << sched.classes_new.at(i).WeekDay << "\t|\t"<<  hours << "\t|\t" << sched.classes_new.at(i).Duration << " hour duration\t|\t" << sched.classes_new.at(i).Type << endl;
         }
     }
 }

@@ -96,7 +96,7 @@ void Class::get_schedule(string classCode)
             else{
                 hours=tempClass.at(i).StartHour.append("::00 start");
             }
-            cout << "\t" << tempClass.at(i).WeekDay << "\t|\t  "<<  hours << "\t|\t " << tempClass.at(i).Duration << " hour duration\t|\t" << tempClass.at(i).Type<< endl;
+            cout << tempClass.at(i).WeekDay << "\t|\t  "<<  hours << "\t|\t " << tempClass.at(i).Duration << " hour duration\t|\t" << tempClass.at(i).Type<< endl;
         }
     }
 
