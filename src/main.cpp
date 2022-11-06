@@ -105,17 +105,18 @@ int main(int argc, char **argv)
     Writer write(sched);
     while (true)
     {
-        cout << "1: Viewer\t2: Request\t3: Get Requests to be Processed\nq: Quit Application"<< endl;
+        cout << "::::::::::::::::::::::::::::::::::::::" << endl;
+        cout << "1: Viewer    2: Request     3: Get Requests to be Processed\nq: Quit Application"<< endl;
         cin >> reply;
         if (reply == "1")
         {
-            cout << "1: View Classes\t2:iew Students\t3: View Schedule\t4: View Ocupation" << endl;
+            cout << "::::::::::::::::::::::::::::::::::::::" << endl;
+            cout << "1: View Classes    2:View Students    3: View Schedule    4: View Ocupation" << endl;
             cin >> reply;
             if (reply == "1")
             {
-                cout << "UC" << endl << endl;
-                cin >> reply;
-                cout << "Enter UC Code (ex:L.EIC005):" << endl << endl;
+                cout << "::::::::::::::::::::::::::::::::::::::" << endl;
+                cout << "Enter UC Code (ex:L.EIC005):" << endl;
                 string code;
                 cin >> code;
                 while (!sched.is_valid_uc(code))
@@ -127,15 +128,18 @@ int main(int argc, char **argv)
             }
             else if (reply == "2")
             {
-                cout << "From:\n1: UC\t2: Class" << endl;
+                cout << "::::::::::::::::::::::::::::::::::::::" << endl;
+                cout << "From:\n1: UC    2: Class" << endl;
                 cin >> reply;
                 if (reply == "1")
                 {
+                    cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                     cout << "Enter UC Code (ex:L.EIC005):" << endl;
                     string code;
                     cin >> code;
                     while (!sched.is_valid_uc(code))
                     {
+                        cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                         cout << "Invalid UC Code!" << endl;
                         cin >> code;
                     }
@@ -143,11 +147,13 @@ int main(int argc, char **argv)
                 }
                 else if (reply == "2")
                 {
+                    cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                     cout << "Enter Class Code (ex:2LEIC07):" << endl;
                     string code;
                     cin >> code;
                     while (!sched.is_valid_class(code))
                     {
+                        cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                         cout << "Invalid Class Code!" << endl;
                         cin >> code;
                     }
@@ -155,21 +161,24 @@ int main(int argc, char **argv)
                 }
                 else
                 {
+                    cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                     cout << "Invalid option!" << endl;
                     continue;
                 }
             }
             else if (reply == "3")
             {
-                cout << "From:\n1: Class\t2: Student"  << endl;
+                cout << "::::::::::::::::::::::::::::::::::::::" << endl;
+                cout << "From:\n1: Class    2: Student"  << endl;
                 cin >> reply;
                 if (reply == "1")
                 {
+                    cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                     cout << "Enter Class Code (ex:7LEIC07):" << endl;
                     string code;
                     cin >> code;
                     while (!sched.is_valid_class(code))
-                    {
+                    {cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                         cout << "Invalid Class Code!" << endl;
                         cin >> code;
                     }
@@ -177,6 +186,7 @@ int main(int argc, char **argv)
                 }
                 else if (reply == "2")
                 {
+                    cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                     cout << "Enter Name / Code (ex: Jonas / 202000000):" << endl;
                     string studentcode;
                     cin >> studentcode;
@@ -184,6 +194,7 @@ int main(int argc, char **argv)
                 }
                 else
                 {
+                    cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                     cout << "Invalid option!" << endl;
                     continue;
                 }
@@ -194,19 +205,23 @@ int main(int argc, char **argv)
             }
             else
             {
+                cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                 cout << "Invalid option!" << endl;
                 continue;
             }
         }
         else if (reply == "2")
         {
-            cout << "1: Remove Student from an UC\t2: Add Student to an UC\t3: Change Student to Another Class" << endl;
+            cout << "::::::::::::::::::::::::::::::::::::::" << endl;
+            cout << "1: Remove Student from an UC    2: Add Student to an UC    3: Change Student to Another Class" << endl;
             cin >> reply;
             if (reply == "1")
             {
+                cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                 cout << "Enter Name / Code (ex: Jonas / 202000000):" << endl;
                 string studentcode;
                 cin >> studentcode;
+                cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                 cout << "UCs:" << endl;
                 map<string, string> c;
                 for (int i = 0; i < sched.classes_per_students_new.size(); i++)
@@ -221,6 +236,7 @@ int main(int argc, char **argv)
                     cout << cc.first << endl;
                 }
                 string uccode;
+                cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                 cout << "Enter Original UC Code (ex: L.EIC007):" << endl;
                 cin >> uccode;
 
@@ -229,38 +245,47 @@ int main(int argc, char **argv)
             }
             else if (reply == "2")
             {
+                cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                 cout << "Enter Name / Code (ex: Jonas / 202000000):" << endl;
                 string studentcode;
                 cin >> studentcode;
+                cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                 cout << "Enter Destination UC Code (ex: L.EIC007):" << endl << endl;
                 cin >> reply;
                 if (!sched.is_valid_uc(reply))
                 {
+                    cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                     cout << "Invalid Uc Code!" << endl;
                     continue;
                 }
+                cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                 cout << "Enter Original Classes:" << endl;
                 for (int i = 0; i < sched.classes_per_uc_new.size(); i++)
                 {
                     if (sched.classes_per_uc_new[i].UcCode == reply && sched.is_balanced(sched.classes_per_uc_new[i].UcCode, sched.classes_per_uc_new[i].ClassCode))
                     {
+                        cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                         cout << sched.classes_per_uc_new[i].ClassCode << endl;
                     }
                 }
                 string destClass;
+                cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                 cout << "Enter Destination Class:" << endl << endl;
                 cin >> destClass;
                 if (!sched.is_valid_uc_class(reply, destClass))
                 {
+                    cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                     cout << "Invalid UC and/or Class combination!" << endl;
                     continue;
                 }
 
                 queue.push({"add", studentcode, reply, destClass, ""});
+                cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                 cout << "Added to queue!" << endl;
             }
             else if (reply == "3")
             {
+                cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                 cout << "Enter Name / Code (ex: Jonas / 202000000):" << endl;
                 string studentCode;
                 cin >> studentCode;
@@ -275,16 +300,20 @@ int main(int argc, char **argv)
                 }
                 for (pair<string, string> cc : c)
                 {
+                    cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                     cout << cc.first << endl;
                 }
+                cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                 cout << "Enter Class of UC to be Changed:" << endl;
                 string uccode;
                 cin >> uccode;
                 if (!sched.is_valid_uc(uccode))
                 {
+                    cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                     cout << "Invalid Uc Code!" << endl;
                     continue;
                 }
+                cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                 cout << "Enter Original Classes:" << endl;
                 for (int i = 0; i < sched.classes_per_uc_new.size(); i++)
                 {
@@ -294,34 +323,41 @@ int main(int argc, char **argv)
                     }
                 }
                 string newClass;
+                cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                 cout << "Enter Destination Class(ex: 7LEIC07):" << endl;
                 cin >> newClass;
                 if (!sched.is_valid_uc_class(uccode, newClass))
                 {
+                    cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                     cout  << "Invalid UC/Class Combination!" <<  endl;
                     continue;
                 }
                 queue.push({"change", studentCode, uccode, c[uccode], newClass});
+                cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                 cout  << "Request has been to queue!" << endl;
             }
             else
             {
+                cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                 cout << "Invalid option!" << endl;
                 continue;
             }
         }
         else if (reply == "3")
         {
-            cout << "1: View Unprocessed Requests\t2 - View Process Requests" << endl;
+            cout << "::::::::::::::::::::::::::::::::::::::" << endl;
+            cout << "1: View Unprocessed Requests    2 - View Process Requests" << endl;
             cin >> reply;
             if (reply == "1")
             {
                 if (queue.size() == 0)
                 {
+                    cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                     cout  << "There are no queued requests!" << endl;
                     continue;
                 }
                 ::queue<request> qCopy = queue;
+                cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                 cout  << "There are" << qCopy.size() << " queued requests:" << endl;
                 while (!qCopy.empty())
                 {
@@ -336,6 +372,7 @@ int main(int argc, char **argv)
             }
             else
             {
+                cout << "::::::::::::::::::::::::::::::::::::::" << endl;
                 cout << "Invalid option!" << endl;
                 continue;
             }
@@ -345,6 +382,7 @@ int main(int argc, char **argv)
         }
         else
         {
+            cout << "::::::::::::::::::::::::::::::::::::::" << endl;
             cout << "Invalid option!" << endl;
             continue;
         }
