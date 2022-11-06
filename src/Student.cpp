@@ -37,7 +37,7 @@ void Student::get_schedule(string studentCode)
     cout << "The Student with the code " << studentCode << " has the following schedule:" << endl;
     for (int i = 0; i < sched.classes_new.size(); i++)
     {
-        string hours;
+        string hours = "";
         if(sched.classes_new.at(i).StartHour.find('.')!=string::npos){
             hours = sched.classes_new.at(i).StartHour.substr(0,sched.classes_new.at(i).StartHour.find('.'));
             hours.append("::30 start");
