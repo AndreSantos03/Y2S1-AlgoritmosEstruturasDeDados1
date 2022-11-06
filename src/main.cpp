@@ -187,7 +187,7 @@ int main(int argc, char **argv)
                 else if (reply == "2")
                 {
                     cout << "::::::::::::::::::::::::::::::::::::::" << endl;
-                    cout << "Enter Name / Code (ex: Jose Leopoldo / 201964162):" << endl;
+                    cout << "Enter Student Code (ex: 201964162):" << endl;
                     string studentcode;
                     cin >> studentcode;
                     stude.get_schedule(studentcode);
@@ -218,7 +218,7 @@ int main(int argc, char **argv)
             if (reply == "1")
             {
                 cout << "::::::::::::::::::::::::::::::::::::::" << endl;
-                cout << "Enter Name / Code (ex: Jose Leopoldo / 201964162):" << endl;
+                cout << "Enter Student Code (ex: 201964162):" << endl;
                 string studentcode;
                 cin >> studentcode;
                 cout << "::::::::::::::::::::::::::::::::::::::" << endl;
@@ -246,7 +246,7 @@ int main(int argc, char **argv)
             else if (reply == "2")
             {
                 cout << "::::::::::::::::::::::::::::::::::::::" << endl;
-                cout << "Enter Name / Code (ex: Jose Leopoldo / 201964162):" << endl;
+                cout << "Enter Student Code (ex: 201964162):" << endl;
                 string studentcode;
                 cin >> studentcode;
                 cout << "::::::::::::::::::::::::::::::::::::::" << endl;
@@ -286,7 +286,7 @@ int main(int argc, char **argv)
             else if (reply == "3")
             {
                 cout << "::::::::::::::::::::::::::::::::::::::" << endl;
-                cout << "Enter Name / Code (ex: Jose Leopoldo / 201964162):" << endl;
+                cout << "Enter Student Code (ex: 201964162):" << endl;
                 string studentCode;
                 cin >> studentCode;
                 cout << "Enter UCs:" << endl;
