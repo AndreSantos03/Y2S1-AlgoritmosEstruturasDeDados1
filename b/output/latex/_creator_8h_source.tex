@@ -1,0 +1,51 @@
+\hypertarget{_creator_8h_source}{}\doxysection{Creator.\+h}
+\label{_creator_8h_source}\index{/Users/pedro/Schedule/src/Creator.h@{/Users/pedro/Schedule/src/Creator.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#ifndef \_CREATOR\_H\_}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#define \_CREATOR\_H\_}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}Sorter.h"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}Reader.h"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{structs_8h}{structs.h}}"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <climits>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <set>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{class_creator}{Creator}}\{}
+\DoxyCodeLine{26     \textcolor{keyword}{public}:}
+\DoxyCodeLine{27         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_creator_aee5b8af1f9da26cde6a1605a9da3880c}{initializion}}();}
+\DoxyCodeLine{28         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_creator_a7fc82d03d1e12d6eacde2c3e2c1f422a}{classes\_initialization}}();}
+\DoxyCodeLine{29         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_creator_a5fc13dc72cf7701b7d72060cfd8244ed}{ocupation\_initialization}}();}
+\DoxyCodeLine{30         vector<vector<string>> \mbox{\hyperlink{class_creator_af3affbaaab32ee1edd1dbf051a7aa59e}{scheduleMaker}}(vector<vector<string>> listScheduele);}
+\DoxyCodeLine{31         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_creator_a4a39c940475e7392f079236e487383d9}{ocupation}}();}
+\DoxyCodeLine{32         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_creator_a3daf5533341477b13669b7c43ff770d1}{remove\_class\_from\_uc}}(\textcolor{keywordtype}{string} studentcode, \textcolor{keywordtype}{string} uccode, \textcolor{keywordtype}{string} classcode);}
+\DoxyCodeLine{33         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_creator_abe469210149f2395c5e3da7662d5a64b}{is\_balanced}}(\textcolor{keywordtype}{string} uccode, \textcolor{keywordtype}{string} classcode);}
+\DoxyCodeLine{34         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_creator_a09daef9bc3f68155438f2030fd74293a}{add\_to}}(\textcolor{keywordtype}{string} studentcode, \textcolor{keywordtype}{string} uccode, \textcolor{keywordtype}{string} classcode);}
+\DoxyCodeLine{35         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_creator_af32c8214cf9b19096b73ab3a663a5996}{class\_changer}}(\textcolor{keywordtype}{string} studentcode, \textcolor{keywordtype}{string} uccode, \textcolor{keywordtype}{string} classcode, \textcolor{keywordtype}{string} newclasscode);}
+\DoxyCodeLine{36         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_creator_a46b48438851c120f5137e13ff0740a1c}{is\_valid\_uc\_class}}(\textcolor{keywordtype}{string} uccode, \textcolor{keywordtype}{string} classcode);}
+\DoxyCodeLine{37         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_creator_a1f19fe208b9b973638564cf71530bd15}{is\_valid\_uc}}(\textcolor{keywordtype}{string} uccode);}
+\DoxyCodeLine{38         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_creator_aaf631d29911d5061561ef91e47749baa}{is\_valid\_class}}(\textcolor{keywordtype}{string} classcode);}
+\DoxyCodeLine{39         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_creator_a9bd1af81a3d5dbd05eba52c81b83fd06}{is\_valid\_schedule\_change}}(\textcolor{keywordtype}{string} studentcode, \textcolor{keywordtype}{string} uc, \textcolor{keywordtype}{string} oldclass, \textcolor{keywordtype}{string} newclass);}
+\DoxyCodeLine{40         }
+\DoxyCodeLine{41         vector<classes> classes\_new;}
+\DoxyCodeLine{42         vector<classes\_per\_uc> classes\_per\_uc\_new;}
+\DoxyCodeLine{43         vector<classes\_per\_students> classes\_per\_students\_new;}
+\DoxyCodeLine{44         set<string> all\_classes\_new;}
+\DoxyCodeLine{45         vector<pair<string,vector<string>>> uc\_classes\_new;}
+\DoxyCodeLine{46         map<string, vector<pair<string,int>>> ocupation\_new;}
+\DoxyCodeLine{47     \};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
