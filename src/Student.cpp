@@ -44,16 +44,9 @@ void Student::get_schedule(string studentCode)
         else{
             hours=sched.classes_new.at(i).StartHour.append("::00 start");
         }
-        string dayy;
-        if(sched.classes_new.at(i).WeekDay == "Wednesday" && sched.classes_new.at(i).WeekDay == "Thurdsday"){
-            dayy = sched.classes_new.at(i).WeekDay.append("\t");
-        }
-        else{
-            dayy = sched.classes_new.at(i).WeekDay.append("\t\t");
-        }
         if (sched.classes_new.at(i).ClassCode == temp_map[sched.classes_new.at(i).UcCode])
         {
-            cout << dayy << "\t"<<  hours << "\t" << sched.classes_new.at(i).Duration << " hour duration\t" << sched.classes_new.at(i).Type << endl;
+            cout << "\t"<<  hours << "\t" << sched.classes_new.at(i).Duration << " hour duration\t" << sched.classes_new.at(i).Type << '\t' << sched.classes_new.at(i).WeekDay << endl;
         }
     }
 }
