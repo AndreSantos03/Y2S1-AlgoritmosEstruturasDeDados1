@@ -84,14 +84,19 @@ void Class::get_students(string classCode)
 void Class::get_schedule(string classCode)
 {
     vector<classes> tempClass = sched.classes_new;
-    vector<vector<string>> studensListing;
-    cout << "The Class with the code " << classCode << " has the following schedule:" << endl;
+    cout << "The Class with the code " << classCode << " has the following classes:" << endl;
     for (int i = 0; i < tempClass.size(); i++)
     {
         if (tempClass.at(i).ClassCode == classCode)
         {
-            cout << "----" << tempClass.at(i).WeekDay << "  |  "<<  tempClass.at(i).StartHour << "  |  " << tempClass.at(i).Duration << " hour duration  |  " << tempClass.at(i).Type << "----" << endl;
-            studensListing.push_back({tempClass.at(i).UcCode, tempClass.at(i).ClassCode, tempClass.at(i).WeekDay, tempClass.at(i).StartHour, tempClass.at(i).Duration, tempClass.at(i).Type});
+            string hours;
+            if(tempClass.at(i).StartHour.find('.')!=string::npos){
+                hours = tempClass.at(i).StartHour.substr(0,tempClass.at(i).StartHour.find('.')).append("::30 start");
+            }
+            else{
+                hours=tempClass.at(i).StartHour.append("::00 start");
+            }
+            cout << "\t" << tempClass.at(i).WeekDay << "\t|\t  "<<  hours << "\t|\t " << tempClass.at(i).Duration << " hour duration\t|\t" << tempClass.at(i).Type<< endl;
         }
     }
 

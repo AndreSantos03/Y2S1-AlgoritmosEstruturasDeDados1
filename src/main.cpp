@@ -174,7 +174,7 @@ int main(int argc, char **argv)
                 if (reply == "1")
                 {
                     cout << "::::::::::::::::::::::::::::::::::::::" << endl;
-                    cout << "Enter Class Code (ex:7LEIC07):" << endl;
+                    cout << "Enter Class Code (ex:2LEIC01):" << endl;
                     string code;
                     cin >> code;
                     while (!sched.is_valid_class(code))
@@ -187,7 +187,7 @@ int main(int argc, char **argv)
                 else if (reply == "2")
                 {
                     cout << "::::::::::::::::::::::::::::::::::::::" << endl;
-                    cout << "Enter Name / Code (ex: Jonas / 202000000):" << endl;
+                    cout << "Enter Name / Code (ex: Jose Leopoldo / 201964162):" << endl;
                     string studentcode;
                     cin >> studentcode;
                     cClass.get_schedule(studentcode);
@@ -218,7 +218,7 @@ int main(int argc, char **argv)
             if (reply == "1")
             {
                 cout << "::::::::::::::::::::::::::::::::::::::" << endl;
-                cout << "Enter Name / Code (ex: Jonas / 202000000):" << endl;
+                cout << "Enter Name / Code (ex: Jose Leopoldo / 201964162):" << endl;
                 string studentcode;
                 cin >> studentcode;
                 cout << "::::::::::::::::::::::::::::::::::::::" << endl;
@@ -237,7 +237,7 @@ int main(int argc, char **argv)
                 }
                 string uccode;
                 cout << "::::::::::::::::::::::::::::::::::::::" << endl;
-                cout << "Enter Original UC Code (ex: L.EIC007):" << endl;
+                cout << "Enter Original UC Code (ex: L.EIC001):" << endl;
                 cin >> uccode;
 
                 queue.push({"remove", studentcode, uccode, c[uccode], ""});
@@ -246,11 +246,11 @@ int main(int argc, char **argv)
             else if (reply == "2")
             {
                 cout << "::::::::::::::::::::::::::::::::::::::" << endl;
-                cout << "Enter Name / Code (ex: Jonas / 202000000):" << endl;
+                cout << "Enter Name / Code (ex: Jose Leopoldo / 201964162):" << endl;
                 string studentcode;
                 cin >> studentcode;
                 cout << "::::::::::::::::::::::::::::::::::::::" << endl;
-                cout << "Enter Destination UC Code (ex: L.EIC007):" << endl << endl;
+                cout << "Enter Destination UC Code (ex: L.EIC001):" << endl << endl;
                 cin >> reply;
                 if (!sched.is_valid_uc(reply))
                 {
@@ -286,7 +286,7 @@ int main(int argc, char **argv)
             else if (reply == "3")
             {
                 cout << "::::::::::::::::::::::::::::::::::::::" << endl;
-                cout << "Enter Name / Code (ex: Jonas / 202000000):" << endl;
+                cout << "Enter Name / Code (ex: Jose Leopoldo / 201964162):" << endl;
                 string studentCode;
                 cin >> studentCode;
                 cout << "Enter UCs:" << endl;
@@ -324,7 +324,7 @@ int main(int argc, char **argv)
                 }
                 string newClass;
                 cout << "::::::::::::::::::::::::::::::::::::::" << endl;
-                cout << "Enter Destination Class(ex: 7LEIC07):" << endl;
+                cout << "Enter Destination Class(ex: 2LEIC01):" << endl;
                 cin >> newClass;
                 if (!sched.is_valid_uc_class(uccode, newClass))
                 {

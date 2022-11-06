@@ -94,7 +94,7 @@ void Creator::ocupation_initialization()
 
 void Creator::ocupation()
 {
-    cout  << "For all UCs type all\tFor Specific UC type LEIC...: " << endl;
+    cout  << "Type:\n\"all\" for all UCs    UC Code for a specific: " << endl;
     string ucAnswer;
     cin >> ucAnswer;
     for (auto ocup : ocupation_new)

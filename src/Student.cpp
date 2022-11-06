@@ -34,12 +34,19 @@ void Student::get_schedule(string studentCode)
             temp_map[sched.classes_per_students_new.at(i).UcCode] = sched.classes_per_students_new.at(i).ClassCode;
         }
     }
+    cout << "The Student with the code " << studentCode << " has the following schedule:" << endl;
     for (int i = 0; i < sched.classes_new.size(); i++)
     {
-        cout << "The Class with the code " << studentCode << " has the following schedule:" << endl;
+        string hours;
+        if(sched.classes_new.at(i).StartHour.find('.')!=string::npos){
+            hours = sched.classes_new.at(i).StartHour.substr(0,sched.classes_new.at(i).StartHour.find('.')).append("::30 start");
+        }
+        else{
+            hours=sched.classes_new.at(i).StartHour.append("::00 start");
+        }
         if (sched.classes_new.at(i).ClassCode == temp_map[sched.classes_new.at(i).UcCode])
         {
-            cout << "----" << sched.classes_new.at(i).WeekDay << "  |  "<<  sched.classes_new.at(i).StartHour << "  |  " << sched.classes_new.at(i).Duration << " hour duration  |  " << sched.classes_new.at(i).Type << "----" << endl;
+            cout << "\t" << sched.classes_new.at(i).WeekDay << "\t|\t"<<  hours << "\t|\t" << sched.classes_new.at(i).Duration << " hour duration\t|\t" << sched.classes_new.at(i).Type << endl;
         }
     }
 }
